@@ -5,7 +5,7 @@
     import java from "$lib/images/dev/java.png"
     import golang from "$lib/images/dev/golang.png"
     import csharp from "$lib/images/dev/csharp.png"
-
+    
     import svelte from "$lib/images/dev/svelte.jpg"
     import sveltekit from "$lib/images/dev/sveltekit.png"
     import react from "$lib/images/dev/react.png"
@@ -20,16 +20,16 @@
     import node from "$lib/images/dev/node.jpg"
     import django from "$lib/images/dev/django.png"
     import contentful from "$lib/images/dev/contentful.png"
-
+    
     import pytorch from "$lib/images/dev/pytorch.jpg";
     import jupiter from "$lib/images/dev/jupiter.png"
     import pandas from "$lib/images/dev/pandas.png"
-
+    
     import postgres from "$lib/images/dev/postgres.png"
     import mysql from "$lib/images/dev/mysql.png"
     import mongodb from "$lib/images/dev/mongodb.jpg"
     import graphql from "$lib/images/dev/graphql.png"
-
+    
     import github from "$lib/images/dev/github.png"
     import docker from "$lib/images/dev/docker.jpg"
     import kubernetes from "$lib/images/dev/kubernetes.png"
@@ -37,14 +37,15 @@
 
 <div class="basis-1/3 flex flex-col gap-y-4">
     <a href="/dev#skills">
-        <h2 id="skills" class="text-2xl font-bold decoration-4 text-stone-900 dark:text-white">
+        <h2 id="skills" style="--stagger:7" data-animate="" class="text-2xl font-bold decoration-4 text-stone-900 dark:text-white">
             # skills
         </h2>
     </a>
-    <ol class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-8 text-lg decoration-4 font-semibold text-stone-900">
-        <li class="flex flex-col items-start justify-start gap-y-2">
+    
+    <ol style="--stagger:8" data-animate="" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-8 text-lg decoration-4 font-semibold text-stone-900">
+        <li class="flex flex-col items-start justify-start gap-y-2 group hover:scale-105 hover:translate-x-1.5 transition duration-300">
             <p class="group-hover:text-blue-500 transition duration-300">Languages</p>
-            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start group">            
+            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start">            
                 <a href="https://developer.mozilla.org/en-US/docs/Web/javascript" title="JavaScript" target="_blank"><img src="{js}" alt="JavaScript" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
                 <a href="https://www.typescriptlang.org/" title="TypeScript" target="_blank"><img src="{ts}" alt="TypeScript" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
                 <a href="https://www.python.org/" title="Python" target="_blank"><img src="{python}" alt="Python" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
@@ -53,9 +54,9 @@
                 <a href="https://dotnet.microsoft.com/en-us/languages/csharp" title="C#" target="_blank"><img src="{csharp}" alt="csharp" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
             </div>
         </li>
-        <li class="flex flex-col items-start gap-y-2">
-            Frontend
-            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start group">            
+        <li class="flex flex-col items-start justify-start gap-y-2 group hover:scale-105 hover:translate-x-1.5 transition duration-300">
+            <p class="group-hover:text-blue-500 transition duration-300">Frontend</p>
+            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start">            
                 <a href="https://www.svelte.dev" title="Svelte" target="_blank"><img src="{svelte}" alt="svelte" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 dark:grayscale-0 transition duration-300 object-cover"></a>
                 <a href="https://kit.svelte.dev/" title="Sveltekit" target="_blank"><img src="{sveltekit}" alt="sveltekit" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
                 <!-- <a href="https://vuejs.org/" title="Vue" target="_blank"><img src="{vue}" alt="vue" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a> -->
@@ -66,9 +67,9 @@
                 <a href="https://getbootstrap.com/" title="Bootstrap" target="_blank"><img src="{bootstrap}" alt="bootstrap" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
             </div>
         </li>
-        <li class="flex flex-col items-start gap-y-2">
-            Backend
-            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start group">            
+        <li class="flex flex-col items-start justify-start gap-y-2 group hover:scale-105 hover:translate-x-1.5 transition duration-300">
+            <p class="group-hover:text-blue-500 transition duration-300">Backend</p>
+            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start">            
                 <a href="https://firebase.google.com/" title="Firebase" target="_blank"><img src="{firebase}" alt="firebase" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
                 <a href="https://nodejs.org/en" title="Node" target="_blank"><img src="{node}" alt="node" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
                 <a href="https://www.djangoproject.com/" title="Django" target="_blank"><img src="{django}" alt="django" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
@@ -77,25 +78,25 @@
                 <a href="https://graphql.org/" title="GraphQL" target="_blank"><img src="{graphql}" alt="graphql" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
             </div>
         </li>        
-        <li class="flex flex-col items-start  gap-y-2">
-            Machine Learning
-            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start group">            
+        <li class="flex flex-col items-start justify-start gap-y-2 group hover:scale-105 hover:translate-x-1.5 transition duration-300">
+            <p class="group-hover:text-blue-500 transition duration-300">Machine Learning</p>
+            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start">            
                 <a href="https://pytorch.org/" title="PyTorch" target="_blank"><img src="{pytorch}" alt="pytorch" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
                 <a href="https://jupyter.org/" title="Jupiter" target="_blank"><img src="{jupiter}" alt="jupiter" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
                 <a href="https://pandas.pydata.org/" title="Pandas" target="_blank"><img src="{pandas}" alt="pandas" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
             </div>
         </li>
-        <li class="flex flex-col items-start  gap-y-2">
-            Databases
-            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start group">            
+        <li class="flex flex-col items-start justify-start gap-y-2 group hover:scale-105 hover:translate-x-1.5 transition duration-300">
+            <p class="group-hover:text-blue-500 transition duration-300">Databases</p>
+            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start">            
                 <a href="https://www.postgresql.org/" title="PostgreSQL" target="_blank"><img src="{postgres}" alt="postgres" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 dark:grayscale-0 transition duration-300 object-cover"></a>
                 <a href="https://www.mysql.com/" title="MySQL" target="_blank"><img src="{mysql}" alt="mysql" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
                 <a href="https://www.mongodb.com/" title="MongoDB" target="_blank"><img src="{mongodb}" alt="mongodb" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
             </div>
         </li>
-        <li class="flex flex-col items-start  gap-y-2">
-            DevOps
-            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start group">            
+        <li class="flex flex-col items-start justify-start gap-y-2 group hover:scale-105 hover:translate-x-1.5 transition duration-300">
+            <p class="group-hover:text-blue-500 transition duration-300">Devops</p>
+            <div class="grid grid-cols-3 gap-x-4 gap-y-2 justify-start">            
                 <a href="https://www.github.com" title="Github" target="_blank"><img src="{github}" alt="github" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 dark:grayscale-0 transition duration-300 object-cover"></a>
                 <a href="https://www.docker.com" title="Docker" target="_blank"><img src="{docker}" alt="docker" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
                 <a href="https://www.kubernetes.io/" title="Kubernetes" target="_blank"><img src="{kubernetes}" alt="kubernetes" class="w-[45px]  h-[45px]  rounded-lg grayscale group-hover:grayscale-0 transition duration-300 object-cover"></a>
@@ -103,3 +104,28 @@
         </li>
     </ol>
 </div>
+
+<style>
+    [data-animate] {
+        --stagger:0;
+        --delay:120ms;
+        --start:0ms
+    }
+    
+    @media (prefers-reduced-motion:no-preference) {
+        [data-animate] {
+            animation:enter .6s both;
+            animation-delay:calc(var(--stagger) * var(--delay) + var(--start))
+        }
+    }
+    @keyframes enter {
+        0% {
+            opacity:0;
+            transform:translateY(10px)
+        }
+        to {
+            opacity:1;
+            transform:none
+        }
+    }
+</style>
