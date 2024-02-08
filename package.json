@@ -38,5 +38,9 @@
 		"vite": "^5.0.3",
 		"vitest": "^1.2.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@contentful/rich-text-html-renderer": "^16.3.4",
+		"contentful": "^10.6.21"
+	}
 }

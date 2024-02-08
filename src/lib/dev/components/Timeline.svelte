@@ -9,14 +9,11 @@
             <li style="--stagger:4" data-animate="" class="relative group flex flex-col pb-8 pl-4 border-l border-stone-300 gap-y-4 text-xs md:text-sm">
                 <div class="absolute w-3 h-3 bg-stone-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-stone-900 dark:bg-stone-700 ">
                 </div>
-                <div class="hidden w-[84px] lg:flex flex-wrap absolute -left-[96px] top-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-5 text-sm font-normal text-stone-700 dark:text-stone-400 transition ease-out duration-300">            
-                    Go Bears! <br> I will always be grateful for my time there. 🐻
-                </div>
                 <div class="flex flex-wrap gap-4 flex-row items-center justify-start text-xs md:text-sm">                   
                     <span class="inline-block px-2 py-1 font-semibold text-white dark:text-stone-900 bg-stone-900 dark:bg-white group-hover:bg-blue-300 group-hover:text-stone-900 transition duration-200 rounded-md">2023</span>
                     <h3 class="text-lg font-semibold text-stone-900 dark:text-white">Bachelor's in Computer Science</h3>
                 </div>
-                <div class="flex gap-x-4 items-en text-stone-700">
+                <div class="flex gap-x-4 items-en text-md font-normal text-stone-500">
                     <div class="flex gap-x-1 items-end">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -31,26 +28,22 @@
                         4 years  
                     </div>
                 </div>
-                <p class="my-2 text-base font-normal text-stone-700 dark:text-stone-400">
+                <p class="my-2 text-base font-normal text-stone-500 dark:text-stone-400">
                     I graduated from the University of California, Berkeley with bachelor degrees in Computer Science and Economics.
                     I studied data structures, algorithms, database systems, machine learning, artificial intelligence, and more.
                 </p>
+                <div class="hidden w-[84px] lg:flex flex-wrap absolute -left-[96px] top-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-5 text-sm font-normal text-stone-500 dark:text-stone-400 transition ease-out duration-300">            
+                    Go Bears! <br> I will always be grateful for my time there. 🐻
+                </div>
             </li>
             <li style="--stagger:5" data-animate="" class="group flex flex-col pb-8 pl-4 border-l border-stone-300 gap-y-4 text-xs md:text-sm">
                 <div class="absolute w-3 h-3 bg-stone-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-stone-900 dark:bg-stone-700 ">
-                </div>
-                <div class="hidden w-[84px] lg:flex flex-wrap absolute -left-[96px] top-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-5 text-sm font-normal text-stone-700 dark:text-stone-400 transition ease-out duration-300">            
-                    Fun Fact: 
-                    <br>
-                    I once overloaded the IRS's API service. 😬 
-                    <br>
-                    I'm scared.
                 </div>
                 <div class="flex flex-wrap gap-4 flex-row items-center justify-start text-xs md:text-sm">
                     <span class="inline-block px-2 py-1 font-semibold text-white dark:text-stone-900 bg-stone-900 dark:bg-white group-hover:bg-red-300 group-hover:text-stone-900 transition duration-200 rounded-md">2022</span>
                     <h3 class="text-lg font-semibold text-stone-900 dark:text-white">Software Engineering Intern</h3>
                 </div>
-                <div class="flex gap-x-4 items-en text-stone-700">
+                <div class="flex gap-x-4 items-en text-md font-normal text-stone-500">
                     <div class="flex gap-x-1 items-end">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -65,23 +58,27 @@
                         1 year  
                     </div>
                 </div>
-                <p class="my-2 text-base font-normal text-stone-700 dark:text-stone-400">
+                <p class="my-2 text-base font-normal text-stone-500 dark:text-stone-400">
                     I spent a summer working for <a href="https://humanitas.ai" class="underline" target="_blank">humanitas.ai</a>, and I built several data pipelines 
                     for the server-side infrastructure. The tech stack included the web-scraping ScraPy framework, Google Cloud PostgreSQL, and
                     various Python scripts.
                 </p>
+                <div class="hidden w-[84px] lg:flex flex-wrap absolute -left-[96px] top-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-5 text-sm font-normal text-stone-500 dark:text-stone-400 transition ease-out duration-300">            
+                    Fun Fact: 
+                    <br>
+                    I once overloaded the IRS's API service. 😬 
+                    <br>
+                    I'm scared.
+                </div>
             </li>
             <li style="--stagger:6" data-animate="" class="group flex flex-col pl-4 border-l border-stone-300 gap-y-4 text-xs md:text-sm">
                 <div class="absolute w-3 h-3 bg-stone-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-stone-900 dark:bg-stone-700 ">
-                </div>
-                <div class="hidden w-[84px] lg:flex flex-wrap absolute -left-[96px] top-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-5 text-sm font-normal text-stone-700 dark:text-stone-400 transition ease-out duration-300">            
-                    I want to give a shoutout to <a class="underline" href="https://cs.stanford.edu/people/eroberts/karel-the-robot-learns-java.pdf" target="_blank">Karel the Robot 🤖</a>
                 </div>
                 <div class="flex flex-wrap gap-4 flex-row items-center justify-start text-xs md:text-sm">
                     <span class="inline-block px-2 py-1 font-semibold text-white dark:text-stone-900 bg-stone-900 dark:bg-white group-hover:bg-yellow-300 group-hover:text-stone-900 transition duration-200 rounded-md">2017</span>
                     <h3 class="text-lg font-semibold text-stone-900 dark:text-white">Hello World</h3>
                 </div>
-                <div class="flex gap-x-4 items-en text-stone-700">
+                <div class="flex gap-x-4 items-en text-md font-normal text-stone-500">
                     <div class="flex gap-x-1 items-end">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -96,36 +93,40 @@
                         1 year  
                     </div>
                 </div>
-                <p class="my-2 text-base font-normal text-stone-700 dark:text-stone-400">
+                <p class="my-2 text-base font-normal text-stone-500 dark:text-stone-400">
                     I wrote my first lines of code in my sophomore year of high school, kicking off
-                    a joyful journey of digital discovery and creation.</p>
-                </li>
-            </ol>
-        </div>
+                    a joyful journey of digital discovery and creation.
+                </p>
+                <div class="hidden w-[84px] lg:flex flex-wrap absolute -left-[96px] top-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-5 text-sm font-normal text-stone-500 dark:text-stone-400 transition ease-out duration-300">            
+                    I want to give a shoutout to <a class="underline" href="https://cs.stanford.edu/people/eroberts/karel-the-robot-learns-java.pdf" target="_blank">Karel the Robot 🤖</a>
+                </div>
+            </li>
+        </ol>
     </div>
+</div>
+
+
+<style>
+    [data-animate] {
+        --stagger:0;
+        --delay:120ms;
+        --start:0ms
+    }
     
-    
-    <style>
+    @media (prefers-reduced-motion:no-preference) {
         [data-animate] {
-            --stagger:0;
-            --delay:120ms;
-            --start:0ms
+            animation:enter .6s both;
+            animation-delay:calc(var(--stagger) * var(--delay) + var(--start))
         }
-        
-        @media (prefers-reduced-motion:no-preference) {
-            [data-animate] {
-                animation:enter .6s both;
-                animation-delay:calc(var(--stagger) * var(--delay) + var(--start))
-            }
+    }
+    @keyframes enter {
+        0% {
+            opacity:0;
+            transform:translateY(10px)
         }
-        @keyframes enter {
-            0% {
-                opacity:0;
-                transform:translateY(10px)
-            }
-            to {
-                opacity:1;
-                transform:none
-            }
+        to {
+            opacity:1;
+            transform:none
         }
-    </style>
+    }
+</style>
