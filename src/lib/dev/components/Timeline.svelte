@@ -64,9 +64,7 @@
                 <p class="text-sm font-normal text-stone-700 dark:text-white">
                     Fun Fact: 
                     <br>
-                    I once overloaded the IRS's API service. 😬 
-                    <br>
-                    I'm scared.
+                    I once overloaded the IRS's API service. 😬
                 </p>
             </div>
         </li>
@@ -98,7 +96,7 @@
             </p>
             <div class="hidden lg:flex flex-wrap absolute w-[84px] -left-[96px] top-5 opacity-0 group-hover:opacity-100 group-hover:-translate-y-5 transition duration-300 ease-out ">            
                 <p class="text-sm font-normal text-stone-700 dark:text-white">
-                    I want to give a shoutout to <a class="underline" href="https://cs.stanford.edu/people/eroberts/karel-the-robot-learns-java.pdf" target="_blank">Karel the Robot 🤖</a>
+                    I want to give a shoutout to <a class="underline" href="https://cs.stanford.edu/people/eroberts/karel-the-robot-learns-java.pdf" target="_blank">Karel the Robot. 🤖</a>
                 </p>
             </div>
         </li>

@@ -9,10 +9,13 @@
         By day, I work tirelessly to master my craft across the modern software stack. 
         <br><br>
         I write progressive web applications. I create clean and lightweight frontend experiences, and
-        I produce efficient and secure backend code.
+        I produce scalable and secure backend code.
         <br><br>
-        I design effective ETL data pipelines. I ensure data quality and efficiency, and I make data accessible for
-        analysis and interpretation.
+        I design effective data processes. I build capable ETL pipelines, and I make data accessible for
+        quality analysis and interpretation.
+        <br><br>
+        I solve complex algorithmic problems. I think deeply and critically, and I devise efficient solutions to
+        optimize code for performance.
         <br><br>
         <!-- As a fan of amazing software, I am a blazingly-fast
         <a href="https://neovim.io/" class="underline" target="_blank">NeoVim</a>
@@ -23,7 +26,7 @@
         masochist, and someone who has finally accepted the unfortunate fact that guarding against
         Carpal Tunnel Syndrome will be a permanent fixture of life as a software engineer.
         <br><br> -->
-        Please email <a href="mailto:dayne@daynetran.com" class="underline underline-offset-4">dayne@daynetran.com</a> to connect.
+        If you are interested in connecting, please email <a href="mailto:dayne@daynetran.com" class="underline underline-offset-4">dayne@daynetran.com</a>.
     </p> 
 </section>
 
