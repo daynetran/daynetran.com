@@ -4,8 +4,8 @@
     import Header from "$lib/layout/Header.svelte";
 </script>
 
-<div class="bg-white dark:bg-black">
-    <Banner/>
+<div class="bg-white dark:bg-black min-h-screen transition duration-500">
+    <!-- <Banner/> -->
     <div class="flex flex-col max-w-[720px] min-h-screen mx-auto px-4">
         <Header/>
         <main class="pt-12">

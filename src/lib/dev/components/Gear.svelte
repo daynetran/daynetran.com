@@ -1,17 +1,17 @@
 <div class="flex flex-col gap-y-4">
     <a style="--stagger:9" data-animate="" href="/dev#gear">
         <h2 id="gear" class="text-2xl font-bold decoration-4 text-stone-900 dark:text-white mb-4">
-            # gear
+            gear
         </h2>
     </a>
     <ul style="--stagger:10" data-animate="" class="flex flex-wrap gap-x-2 gap-y-2 text-md font-semibold decoration-4 text-stone-900 cursor-mac">
-        <li class="py-2 px-2 rounded-lg border border-black bg-white">
+        <li class="py-2 px-2 rounded-lg border border-black bg-gray-400">
             <a href="https://www.apple.com/macbook-pro/" target="_blank">Macbook Pro 2023</a>
         </li>
-        <li class="py-2 px-2 rounded-lg border border-black bg-white cursor-ergo">
+        <li class="py-2 px-2 rounded-lg border border-black bg-white">
             <a href="https://ergodox-ez.com/" target="_blank">Ergodox EZ</a>     
         </li>
-        <li class="py-2 px-2 rounded-lg border border-black bg-white cursor-mx">
+        <li class="py-2 px-2 rounded-lg border border-black bg-white">
             <a href="https://www.logitech.com/en-us/products/mice/mx-master-3s.html" target="_blank">Logitech MX Master 3S</a>     
         </li>
         <li class="py-2 px-2 rounded-lg border border-black bg-white  hover:bg-yellow-700 hover:text-white transition duration-300">
@@ -19,28 +19,3 @@
         </li>
     </ul>
 </div>
-
-<style>
-    [data-animate] {
-        --stagger:0;
-        --delay:120ms;
-        --start:0ms
-    }
-    
-    @media (prefers-reduced-motion:no-preference) {
-        [data-animate] {
-            animation:enter .6s both;
-            animation-delay:calc(var(--stagger) * var(--delay) + var(--start))
-        }
-    }
-    @keyframes enter {
-        0% {
-            opacity:0;
-            transform:translateY(10px)
-        }
-        to {
-            opacity:1;
-            transform:none
-        }
-    }
-</style>

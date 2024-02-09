@@ -5,13 +5,4 @@
 
 <section class="flex flex-col gap-y-10 items-center justify-center mx-auto ">
     <Hero/>
-    <Preview/>
 </section>
-
-
-
-<style lang="postcss">
-    :global(html) {
-        background-color: theme(colors.gray.100);
-    }
-</style>
