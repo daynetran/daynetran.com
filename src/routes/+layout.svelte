@@ -12,4 +12,3 @@
 		<slot />
 	</main>
 </ThemeInitializer>
-
