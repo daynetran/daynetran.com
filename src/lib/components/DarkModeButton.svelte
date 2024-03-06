@@ -1,10 +1,20 @@
 <script lang="ts">
 	import { darkmode } from '$lib/stores/darkmode';
-	import Moon from '$lib/components/svg/Moon.svelte';
-	import Sun from '$lib/components/svg/Sun.svelte';
+	import Moon from '$lib/components/svg/MoonIcon.svelte';
+	import Sun from '$lib/components/svg/SunIcon.svelte';
+	import { slide } from 'svelte/transition';
 
 	let iconStyle: string = '';
 	export { iconStyle };
+
+	let inTransition = {
+		duration: 400,
+		delay: 500
+	};
+
+	let outTransition = {
+		duration: 400
+	};
 
 	function toggleDarkMode() {
 		if ($darkmode) {
@@ -21,8 +31,12 @@
 
 <button on:click={toggleDarkMode}>
 	{#if $darkmode}
-		<Moon class={iconStyle} />
+		<div in:slide={inTransition} out:slide={outTransition}>
+			<Moon class={iconStyle} />
+		</div>
 	{:else}
-		<Sun class={iconStyle} />
+		<div in:slide={inTransition} out:slide={outTransition}>
+			<Sun class={iconStyle} />
+		</div>
 	{/if}
 </button>

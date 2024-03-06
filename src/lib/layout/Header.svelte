@@ -1,19 +1,20 @@
 <script lang="ts">
-	import Home from '$lib/components/svg/Home.svelte';
-	import Dev from '$lib/components/svg/Dev.svelte';
+	import HomeIcon from '$lib/components/svg/HomeIcon.svelte';
+	import DevIcon from '$lib/components/svg/DevIcon.svelte';
 	import DarkModeButton from '$lib/components/DarkModeButton.svelte';
-	import Thought from '$lib/components/svg/Thought.svelte';
-	import Chef from '$lib/components/svg/Chef.svelte';
-	let iconStyle = 'w-6 h-6 hover:rotate-12 dark:stroke-white';
+	import ThoughtIcon from '$lib/components/svg/ThoughtIcon.svelte';
+	import CakeIcon from '$lib/components/svg/CakeIcon.svelte';
+
+	let iconStyle: string = 'w-6 h-6 hover:rotate-12 dark:stroke-white';
 </script>
 
 <header class="">
 	<nav class="flex justify-between items-center pt-8">
 		<ul class="flex justify-center gap-x-8">
-			<li><a href="/" title="home sweet home"><Home class={iconStyle} /></a></li>
-			<li><a href="/dev" title="git push"><Dev class={iconStyle} /> </a></li>
-			<li><a href="/dev/"><Thought class={iconStyle} /></a></li>
-			<li><a href="/dev"><Chef class={iconStyle} /></a></li>
+			<li><a href="/" title="home sweet home"><HomeIcon class={iconStyle} /></a></li>
+			<li><a href="/dev" title="git push"><DevIcon class={iconStyle} /> </a></li>
+			<li><a href="/dev/"><ThoughtIcon class={iconStyle} /></a></li>
+			<li><a href="/dev"><CakeIcon class={iconStyle} /></a></li>
 			<!-- <li>
             <Thought
             </li> -->
