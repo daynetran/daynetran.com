@@ -10,3 +10,12 @@ export type MarkdownPost = {
     };
     default: ComponentType;
 };
+
+export type TimelineInfo = {
+    title: string;
+    desc: string;
+    aside: string;
+    location: string;
+    time_spent: number;
+    year: number;
+}

@@ -1,8 +1,8 @@
 <script>
-	import Intro from '$lib/dev/components/Intro.svelte';
-	import Timeline from '$lib/dev/components/Timeline.svelte';
-	import Skill from '$lib/dev/components/Skills.svelte';
-	import Gear from '$lib/dev/components/Gear.svelte';
+	import Intro from '$lib/components/dev/Intro.svelte';
+	import Timeline from '$lib/components/dev/Timeline.svelte';
+	import Skill from '$lib/components/dev/Skills.svelte';
+	import Gear from '$lib/components/dev/Gear.svelte';
 
 	// function scroll(){
 	//     var getMeTo = document.getElementById("blue");
@@ -19,4 +19,3 @@
 	<!-- Blog -->
 	<!-- Projects -->
 </section>
-
