@@ -1,11 +1,17 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { ThemeButton } from "../ThemeButton";
+import { ThemeButton } from "@/components/Theming/ThemeButton";
 
-const TitleBar = () => {
+type Props = {
+    isMobile?: boolean
+}
+
+const TitleBar = ({ isMobile = false }: Props) => {
     return (
-        <div className="flex items-center justify-between">
+        <div className={
+            isMobile
+                ? "bg-white/90 dark:bg-neutral-800/90 flex pt-2 px-2 items-center justify-between"
+                : "sticky top-0 bg-white/90 dark:bg-neutral-800/90 flex pt-2 px-2 items-center justify-between"}>
             <span className="pl-2 font-bold text-base"> Dayne Tran </span>
             <ThemeButton />
         </div>

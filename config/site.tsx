@@ -1,5 +1,3 @@
-"use server"
-
 import {
     HomeIcon,
     BookmarkIcon,
@@ -10,17 +8,18 @@ import {
     TrophyIcon as TierListIcon,
     ScrollTextIcon as ResumeIcon,
     ArrowUpRightIcon,
-    DatabaseZapIcon as DataEssayIcon,
+    DatabaseZapIcon as DataStoryIcon,
     LibraryBigIcon as AnecdoteIcon,
     BananaIcon as SatireIcon,
+    GithubIcon,
+    LinkedinIcon,
+    TwitterIcon,
 } from "lucide-react";
-import Link from "next/link";
-import { NavLink } from "./NavLink";
-import { GitHubIcon, TwitterIcon } from "./Icons";
 
-const sections = [
+export const navItems = [
     {
         label: null,
+        color: "primary",
         items: [
             {
                 href: "/",
@@ -34,6 +33,7 @@ const sections = [
     },
     {
         label: "Me",
+        color: "red",
         items: [
             {
                 href: "/bookmarks",
@@ -63,6 +63,7 @@ const sections = [
     },
     {
         label: "Software",
+        color: "blue",
         items: [
             {
                 href: "/projects",
@@ -100,11 +101,12 @@ const sections = [
     },
     {
         label: "Meditations",
+        color: "green",
         items: [
             {
-                href: "/data-essays",
-                label: "Data Essays",
-                icon: <DataEssayIcon />,
+                href: "/data-stories",
+                label: "Data Stories",
+                icon: <DataStoryIcon />,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: false,
@@ -129,10 +131,11 @@ const sections = [
     },
     {
         label: "Online",
+        color: "primary",
         items: [
             {
                 href: "https://twitter.com/RealDayneTran",
-                label: "X (formerly Twitter)",
+                label: "Twitter",
                 icon: <TwitterIcon />,
                 trailingAccessory: null,
                 trailingAction: null,
@@ -141,53 +144,19 @@ const sections = [
             {
                 href: "https://github.com/daynetran/",
                 label: "Github",
-                icon: <GitHubIcon />,
+                icon: <GithubIcon />,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: true,
             },
+            {
+                href: "https://linkedin.com/in/daynetran/",
+                label: "LinkedIn",
+                icon: <LinkedinIcon />,
+                trailingAccessory: null,
+                trailingAction: null,
+                isExternal: true,
+            }
         ]
     }
-
 ]
-
-export const Navigation = () => {
-    return (
-        <div className="flex-1 space-y-6">
-            {sections.map((section, i) => {
-                return (
-                    <ul key={i} className="space-y-1">
-                        {section.label && (
-                            <h4
-                                key={i}
-                                className="pb-2 pl-2 text-base font-semibold text-opacity-40 dark:text-gray-100"
-                            >
-                                {section.label}
-                            </h4>
-                        )}
-                        {section.items.map((item, j) => (
-                            <NavLink key={j} href={item.href}>
-                                <Link
-                                    href={item.href}
-                                    className="w-full flex gap-2"
-                                    target={item.isExternal ? "_blank" : ""}
-                                >
-                                    <span className="flex items-center w-4">
-                                        {item.icon}
-                                    </span>
-                                    <span className="flex-1">
-                                        {item.label}
-                                    </span>
-                                    <span className="flex items-center w-4">
-                                        {item.isExternal ? <ArrowUpRightIcon /> : null}
-                                    </span>
-                                </Link>
-                            </NavLink>
-                        ))}
-                    </ul>
-                )
-            })}
-        </div >
-    )
-}
-

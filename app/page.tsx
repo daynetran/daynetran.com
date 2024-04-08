@@ -1,8 +1,8 @@
-import { ThemeButton } from "@/components/ThemeButton";
+import { ThemeButton } from "@/components/Theming/ThemeButton";
 
 export default function Home() {
     return (
-        <div className="flex bg-white min-h-screen w-full flex-col dark:bg-black items-center justify-between p-24">
+        <div className="flex w-full h-screen justify-center items-center">
             <ThemeButton />
         </div>
     );

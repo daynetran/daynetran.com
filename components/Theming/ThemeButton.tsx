@@ -1,4 +1,5 @@
 "use client"
+
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes"
 import { Sun, Moon } from "lucide-react";
@@ -23,13 +24,13 @@ export const ThemeButton = () => {
         message = "Turn on light mode"
     }
 
+    const handleClick = () => {
+        theme === "light" ? setTheme("dark") : setTheme("light")
+    }
 
     return (
-
-        <>
-            <Button size="rounded" variant="outline" onClick={() => theme === "light" ? setTheme("dark") : setTheme("light")}>
-                {theme === "light" ? <Sun size={20} /> : <Moon size={20} />}
-            </Button>
-        </>
+        <Button size="rounded" variant="primary" onClick={handleClick}>
+            {theme === "light" ? <Sun size={16} /> : <Moon size={16} />}
+        </Button>
     )
 }

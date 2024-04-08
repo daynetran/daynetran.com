@@ -9,13 +9,26 @@ const buttonVariants = cva(
     {
         variants: {
             variant: {
-                default: "bg-primary text-primary-foreground hover:bg-primary/90",
+                default:
+                    "bg-primary text-primary-foreground hover:bg-primary/90",
                 destructive:
                     "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-                nav:
-                    "bg-white dark:bg-neutral-900 hover:bg-neutral-200/90 dark:hover:bg-neutral-200/20 ",
-                navOutline:
-                    "bg-neutral-200/90 dark:bg-neutral-200/20",
+                red:
+                    "bg-white dark:bg-neutral-800 hover:bg-red-200/80 dark:hover:bg-red-200/20  active:scale-[0.99]",
+                redOutline:
+                    "bg-red-500 dark:bg-red-300 text-white dark:text-neutral-900 active:scale-[0.99]",
+                blue:
+                    "bg-white dark:bg-neutral-800 hover:bg-blue-200/80 dark:hover:bg-blue-200/20 active:scale-[0.99]",
+                blueOutline:
+                    "bg-blue-500 dark:bg-blue-300 text-white dark:text-neutral-900 active:scale-[0.99]",
+                green:
+                    "bg-white dark:bg-neutral-800 hover:bg-green-200/80 dark:hover:bg-green-200/20  active:scale-[0.99]",
+                greenOutline:
+                    "bg-green-500 dark:bg-green-300 text-white dark:text-neutral-900 active:scale-[0.99]",
+                primary:
+                    "bg-white dark:bg-neutral-800 hover:bg-neutral-200/80 dark:hover:bg-neutral-200/20  active:scale-[0.99]",
+                primaryOutline:
+                    "bg-neutral-800 dark:bg-white text-white dark:text-neutral-900 active:scale-[0.99]",
                 secondary:
                     "bg-secondary text-secondary-foreground hover:bg-secondary/80",
                 ghost: "hover:bg-accent hover:text-accent-foreground",
@@ -26,7 +39,7 @@ const buttonVariants = cva(
                 sm: "h-9 rounded-md px-3",
                 lg: "h-11 rounded-md px-8",
                 icon: "h-10 w-10",
-                rounded: "p-2 rounded-full"
+                rounded: "p-1 rounded-full"
             },
         },
         defaultVariants: {
