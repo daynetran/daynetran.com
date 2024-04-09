@@ -10,29 +10,29 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default:
-                    "bg-primary text-primary-foreground hover:bg-primary/90",
+                    "bg-primary text-primary-foreground lg:hover:bg-primary/90",
                 destructive:
-                    "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+                    "bg-destructive text-destructive-foreground lg:hover:bg-destructive/90",
                 red:
-                    "bg-white dark:bg-neutral-800 hover:bg-red-200/80 dark:hover:bg-red-200/20  active:scale-[0.99]",
+                    "bg-white dark:bg-neutral-900 lg:hover:bg-red-200/80 dark:lg:hover:bg-red-200/20  active:scale-[0.99]",
                 redOutline:
                     "bg-red-500 dark:bg-red-300 text-white dark:text-neutral-900 active:scale-[0.99]",
                 blue:
-                    "bg-white dark:bg-neutral-800 hover:bg-blue-200/80 dark:hover:bg-blue-200/20 active:scale-[0.99]",
+                    "bg-white dark:bg-neutral-900 lg:hover:bg-blue-200/80 dark:lg:hover:bg-blue-200/20 active:scale-[0.99]",
                 blueOutline:
                     "bg-blue-500 dark:bg-blue-300 text-white dark:text-neutral-900 active:scale-[0.99]",
                 green:
-                    "bg-white dark:bg-neutral-800 hover:bg-green-200/80 dark:hover:bg-green-200/20  active:scale-[0.99]",
+                    "bg-white dark:bg-neutral-900 lg:hover:bg-green-200/80 dark:lg:hover:bg-green-200/20  active:scale-[0.99]",
                 greenOutline:
                     "bg-green-500 dark:bg-green-300 text-white dark:text-neutral-900 active:scale-[0.99]",
                 primary:
-                    "bg-white dark:bg-neutral-800 hover:bg-neutral-200/80 dark:hover:bg-neutral-200/20  active:scale-[0.99]",
+                    "bg-white dark:bg-neutral-900 lg:hover:bg-neutral-200/80 dark:lg:hover:bg-neutral-200/20  active:scale-[0.99]",
                 primaryOutline:
-                    "bg-neutral-800 dark:bg-white text-white dark:text-neutral-900 active:scale-[0.99]",
+                    "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 active:scale-[0.99]",
                 secondary:
-                    "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-                ghost: "hover:bg-accent hover:text-accent-foreground",
-                link: "text-primary underline-offset-4 hover:underline",
+                    "bg-secondary text-secondary-foreground lg:hover:bg-secondary/80",
+                ghost: "lg:hover:bg-accent lg:hover:text-accent-foreground",
+                link: "text-primary underline-offset-4 lg:hover:underline",
             },
             size: {
                 default: "h-8 px-2 py-2",

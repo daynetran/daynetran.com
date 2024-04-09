@@ -1,9 +1,6 @@
-
 const ProjectPage = () => {
     return (
-        <div className="flex w-full h-screen  justify-center items-center">
-            Projects
-        </div>
+        <div className="hidden lg:flex flex-1" />
     )
 }
 

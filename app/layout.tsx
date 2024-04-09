@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
 
-import { Sidebar } from "@/components/Containers/Sidebar/Sidebar";
-import { SidebarSheet } from "@/components/Containers/Sidebar/SidebarSheet";
+import { Sidebar } from "@/components/Containers/Sidebar";
+import { SidebarMobile } from "@/components/Containers/SidebarMobile";
 
 import "./globals.css";
 
@@ -23,13 +23,11 @@ export default function RootLayout({
     return (
         <ClerkProvider>
             <html lang="en" suppressHydrationWarning>
-                <body className={inter.className}>
+                <body className={`relative flex min-h-screen min-w-screen bg-white dark:bg-black ${inter.className}`}>
                     <ThemeProvider attribute="class">
-                        <main className="relative flex min-h-screen w-full bg-white dark:bg-black ">
-                            <Sidebar />
-                            <SidebarSheet />
-                            {children}
-                        </main>
+                        <Sidebar />
+                        <SidebarMobile />
+                        {children}
                     </ThemeProvider>
                 </body>
             </html>

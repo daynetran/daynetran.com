@@ -7,7 +7,6 @@ import {
     PencilLineIcon as TechArticleIcon,
     TrophyIcon as TierListIcon,
     ScrollTextIcon as ResumeIcon,
-    ArrowUpRightIcon,
     DatabaseZapIcon as DataStoryIcon,
     LibraryBigIcon as AnecdoteIcon,
     BananaIcon as SatireIcon,
@@ -16,7 +15,8 @@ import {
     TwitterIcon,
 } from "lucide-react";
 
-export const navItems = [
+
+export const navigationItems = [
     {
         label: null,
         color: "primary",

@@ -110,3 +110,22 @@
         @apply text-slate-400 dark:text-slate-500;
     }
 }
+
+/* Inside your CSS file or <style> tags */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-gradient {
+    animation: gradient 3s ease-in-out infinite;
+}
