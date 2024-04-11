@@ -7,8 +7,9 @@ import { ContentContainer } from "../Containers/ContentContainer";
  * provides the elements for client-side navigation and global features like theming.
  */
 export const SidebarLayout = ({ children }: { children: ReactNode }) => {
+
     return (
-        <aside className="inset-y-0 left-0 min-w-64 max-w-64 h-screen bg-white dark:bg-neutral-900 border-r border-neutral-200 dark:border-neutral-800 hidden lg:flex flex-col overflow-y-auto gap-4">
+        <aside className="min-w-40 max-w-40 lg:min-w-64 lg:max-w-64 2xl:min-w-72 2xl:max-w-72 h-screen bg-white dark:bg-neutral-900 border-r border-neutral-200 dark:border-neutral-800 hidden lg:flex flex-col overflow-y-auto gap-8">
             <SidebarHeader />
             <ContentContainer>
                 {children}

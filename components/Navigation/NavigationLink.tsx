@@ -28,7 +28,6 @@ export const NavigationLink = ({
     return (
         <Button
             variant={active ? `${color}Outline` : `${color}`}
-            className="w-full"
             asChild
             onClick={close}
         >

@@ -5,7 +5,11 @@ import { SidebarHeader } from "@/components/Headers/SidebarHeader";
 import { ContentContainer } from "@/components/Containers/ContentContainer";
 
 import { useMobileSidebarSheet } from "@/stores/use-mobile-sidebar-sheet";
+import { Viewport } from "next";
 
+export const viewport: Viewport = {
+    themeColor: '#171717',
+}
 /**
  * The SidebarMobile is a Client component that returns a sheet that opens when a global state 
  * variable, or store, is set to `true`. The trigger or button that opens the sheet is only 
@@ -18,7 +22,7 @@ export const SidebarMobileLayout = ({ children }: { children: React.ReactNode })
 
     return (
         <Sheet open={isOpen} onOpenChange={toggle}>
-            <SheetContent side={"left"} className="flex flex-col py-0 px-0 dark:bg-neutral-900 overflow-auto transition-none ">
+            <SheetContent side={"left"} className="flex flex-col py-0 px-0 dark:bg-neutral-900 overflow-auto transition-none gap-8">
                 <SidebarHeader />
                 <ContentContainer>
                     {children}

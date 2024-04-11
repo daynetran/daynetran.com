@@ -20,11 +20,11 @@ export const Navigation: FC = () => {
             {navigationItems.map((section) => {
                 return (
                     <ul key={section.label} className="text-sm ">
-                        <li className="flex flex-col gap-2">
+                        <li className="flex flex-col gap-3">
                             {section.label && (
                                 <h2 className="pl-2 font-semibold text-opacity-40" >{section.label}</h2>
                             )}
-                            <ul className="flex flex-col gap-2">
+                            <ul className="flex flex-col gap-1">
                                 {section.items.map((item) => {
                                     if (!colors.includes(section.color)) {
                                         return;
@@ -40,7 +40,7 @@ export const Navigation: FC = () => {
                                                 className="w-full flex items-center gap-3"
                                                 target={item.isExternal ? "_blank" : ""}
                                             >
-                                                <span className="flex items-center w-4"> <item.icon /> </span>
+                                                <item.icon className="w-4" />
                                                 <h3 className="flex-1"> {item.label} </h3>
                                                 {item.isExternal ? <ArrowUpRightIcon className="w-4" /> : null}
                                             </Link>

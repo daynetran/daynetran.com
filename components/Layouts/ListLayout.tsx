@@ -19,11 +19,10 @@ export const ListLayout = ({
     withFilter,
     withSort,
     children,
-    params,
 }: ListLayoutProps) => {
     return (
         <ListClientLayout>
-            <ListHeader title={title} withSearch={withSearch} withFilter={withFilter} withSort={withSort} />
+            <ListHeader title={title} withSearch withFilter withSort />
             <ContentContainer>
                 {children}
             </ContentContainer>

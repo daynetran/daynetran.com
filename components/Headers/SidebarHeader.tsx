@@ -10,7 +10,7 @@ export const SidebarHeader = () => {
         <HeaderContainer>
             {// Please put a cool, interactive logo here instead of this basic nonsense. lmao.
             }
-            <span className="font-bold text-base"> Dayne Tran </span>
+            <h1 className="font-bold text-lg"> Dayne Tran </h1>
             <ThemeButton />
         </HeaderContainer>
     )

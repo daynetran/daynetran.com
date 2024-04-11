@@ -1,6 +1,14 @@
 export const ContentContainer = ({ children }: { children: React.ReactNode }) => {
     return (
-        <div className="px-2 py-0">
+        <div className="flex px-2 lg:px-3 py-0 w-full items-center justify-center">
+            {children}
+        </div>
+    )
+}
+
+export const ProseContainer = ({ children }: { children: React.ReactNode }) => {
+    return (
+        <div className="px-2 lg:px-3 w-full lg:max-w-prose flex items-center justify-center bg-red-300">
             {children}
         </div>
     )

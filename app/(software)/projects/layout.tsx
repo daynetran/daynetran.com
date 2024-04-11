@@ -1,146 +1,12 @@
 import { ListLayout } from "@/components/Layouts/ListLayout";
-import { Button } from "@/components/ui/button";
+import { PageLink } from "@/components/Layouts/ListLink";
 import { Viewport } from "next";
 import Link from "next/link";
+import { dummyItems } from "@/config/dummy";
 
 export const viewport: Viewport = {
     themeColor: '#171717',
 }
-const dummyItems = [
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-    {
-        title: "Making my site"
-    },
-]
-
 
 const ProjectLayout = ({ params, children }: { params: { slug: string }, children: React.ReactNode }) => {
     return (
@@ -152,25 +18,34 @@ const ProjectLayout = ({ params, children }: { params: { slug: string }, childre
                 withSort
                 params={params}
             >
-                <ol className="flex flex-col items-center gap-2">
+                <ol className="flex flex-col items-center gap-1 w-full">
+                    <PageLink
+                        href="/projects/building-my-site"
+                    >
+                        <Link
+                            href="/projects/building-my-site">
+                            <div>Building my site</div>
+                        </Link>
+                    </PageLink>
                     {dummyItems.map((dummy, i) => {
                         return (
-                            <Button
-                                size="lg"
-                                variant="primary"
-                                className="w-full"
-                                asChild
+                            <PageLink
+                                href="/projects/fire-fighter"
                             >
                                 <Link
-                                    href="/projects/fire-fighter"
-                                >
-                                    <div key={i}>{dummy.title}</div>
+                                    href="/projects/fire-fighter">
+                                    <div className="flex flex-col gap-2">
+                                        <div key={i}>{dummy.title}</div>
+                                        <br />
+                                        <div key={i}>{dummy.title}</div>
+                                    </div>
+
                                 </Link>
-                            </Button>
+                            </PageLink>
                         )
                     })}
                 </ol>
-            </ListLayout>
+            </ListLayout >
             {children}
         </>
     )

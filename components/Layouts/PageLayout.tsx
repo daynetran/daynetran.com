@@ -1,6 +1,5 @@
-import { Menu } from "lucide-react";
-
 import { PageHeader } from "@/components/Headers/PageHeader";
+import { ContentContainer } from "../Containers/ContentContainer";
 
 type PageLayoutProps = {
     hasList: boolean;
@@ -10,11 +9,13 @@ type PageLayoutProps = {
 
 const PageLayout = ({ hasList, children, params }: PageLayoutProps) => {
     return (
-        <div className="flex-1 flex flex-col items-center w-full">
-            <PageHeader withFilter withSort withSearch hasList={hasList} />
-            <div className="pt-6 w-full lg:max-w-prose">
-                {children}
-            </div>
+        <div className="flex-1 flex flex-col items-center w-full gap-8">
+            <PageHeader withFilter withSort withSearch hasList={hasList} title={params?.slug} />
+            <ContentContainer>
+                <article className="flex w-full max-w-prose justify-center items-center">
+                    {children}
+                </article>
+            </ContentContainer>
         </div>
     )
 }
