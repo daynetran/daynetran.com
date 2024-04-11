@@ -13,10 +13,29 @@ import {
     GithubIcon,
     LinkedinIcon,
     TwitterIcon,
+    LucideIcon,
 } from "lucide-react";
 
+type RouteGroup = {
+    label: string | null;
+    color: "blue" | "green" | "red" | "primary";
+    items: Route[];
+}
 
-export const navigationItems = [
+type Route = {
+    href: string;
+    label: string | null;
+    icon: LucideIcon;
+    trailingAccessory: LucideIcon | null;
+    trailingAction: LucideIcon | null;
+    isExternal: boolean;
+}
+
+/**
+ * navigationItems is an array of objects, and each object represents a page of the application as
+ * well as several features that help define its layout and style.
+ */
+export const navigationItems: RouteGroup[] = [
     {
         label: null,
         color: "primary",
@@ -24,7 +43,7 @@ export const navigationItems = [
             {
                 href: "/",
                 label: "Home",
-                icon: <HomeIcon />,
+                icon: HomeIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: false,
@@ -38,7 +57,7 @@ export const navigationItems = [
             {
                 href: "/bookmarks",
                 label: "Bookmarks",
-                icon: <BookmarkIcon />,
+                icon: BookmarkIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: false,
@@ -46,7 +65,7 @@ export const navigationItems = [
             {
                 href: "/faqs",
                 label: "FAQs",
-                icon: <FAQIcon />,
+                icon: FAQIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: false,
@@ -54,7 +73,7 @@ export const navigationItems = [
             {
                 href: "/interests",
                 label: "Interests",
-                icon: <InterestIcon />,
+                icon: InterestIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: false,
@@ -68,7 +87,7 @@ export const navigationItems = [
             {
                 href: "/projects",
                 label: "Projects",
-                icon: <ProjectIcon />,
+                icon: ProjectIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: false,
@@ -76,7 +95,7 @@ export const navigationItems = [
             {
                 href: "/technicals",
                 label: "Technical Articles",
-                icon: <TechArticleIcon />,
+                icon: TechArticleIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: false,
@@ -84,7 +103,7 @@ export const navigationItems = [
             {
                 href: "/tier-lists",
                 label: "Tier Lists",
-                icon: <TierListIcon />,
+                icon: TierListIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: false,
@@ -92,7 +111,7 @@ export const navigationItems = [
             {
                 href: "/resume",
                 label: "Resume",
-                icon: <ResumeIcon />,
+                icon: ResumeIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: true,
@@ -106,7 +125,7 @@ export const navigationItems = [
             {
                 href: "/data-stories",
                 label: "Data Stories",
-                icon: <DataStoryIcon />,
+                icon: DataStoryIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: false,
@@ -114,7 +133,7 @@ export const navigationItems = [
             {
                 href: "/anecdotes",
                 label: "Anecdotes",
-                icon: <AnecdoteIcon />,
+                icon: AnecdoteIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: false,
@@ -122,7 +141,7 @@ export const navigationItems = [
             {
                 href: "/satire",
                 label: "Satire",
-                icon: <SatireIcon />,
+                icon: SatireIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: false,
@@ -130,13 +149,13 @@ export const navigationItems = [
         ]
     },
     {
-        label: "Online",
+        label: "Socials",
         color: "primary",
         items: [
             {
                 href: "https://twitter.com/RealDayneTran",
                 label: "Twitter",
-                icon: <TwitterIcon />,
+                icon: TwitterIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: true,
@@ -144,7 +163,7 @@ export const navigationItems = [
             {
                 href: "https://github.com/daynetran/",
                 label: "Github",
-                icon: <GithubIcon />,
+                icon: GithubIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: true,
@@ -152,7 +171,7 @@ export const navigationItems = [
             {
                 href: "https://linkedin.com/in/daynetran/",
                 label: "LinkedIn",
-                icon: <LinkedinIcon />,
+                icon: LinkedinIcon,
                 trailingAccessory: null,
                 trailingAction: null,
                 isExternal: true,

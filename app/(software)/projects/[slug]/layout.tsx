@@ -7,7 +7,7 @@ type PageLayoutProps = {
 
 const ProjectPageLayout = ({ children, params }: PageLayoutProps) => {
     return (
-        <PageLayout params={params}>
+        <PageLayout params={params} hasList={true}>
             {children}
         </PageLayout>
     )

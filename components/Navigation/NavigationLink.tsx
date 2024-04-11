@@ -10,6 +10,11 @@ type Props = {
     color: "red" | "blue" | "green" | "primary";
 }
 
+/**
+ * NavigationLink is a React Client Component. It retrieves the pathname from 
+ * the browser and parses it for the top-level navigation link. It then outlines
+ * the Button if its 'href' prop is equal to the top pathname.
+ */
 export const NavigationLink = ({
     href,
     children,

@@ -6,6 +6,11 @@ import { Sun, Moon } from "lucide-react";
 
 import { Button } from "@/components/ui/button"
 
+/**
+ * ThemeButton is a React Client Component that provides a theme toggle button to turn on light or
+ * dark mode for the entire application. It uses the 'next-themes' package to provide quick and
+ * easy theming and abstract away the necessary, but hard, details of theme implementation.
+ */
 export const ThemeButton = () => {
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();

@@ -3,10 +3,12 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
 
-import { Sidebar } from "@/components/Containers/Sidebar";
-import { SidebarMobile } from "@/components/Containers/SidebarMobile";
+import { SidebarMobileLayout } from "@/components/Layouts/SidebarMobileLayout"
 
 import "./globals.css";
+import { SidebarLayout } from "@/components/Layouts/SidebarLayout";
+import { Navigation } from "@/components/Navigation/Navigation"
+import { MainLayout } from "@/components/Layouts/MainLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,9 +27,15 @@ export default function RootLayout({
             <html lang="en" suppressHydrationWarning>
                 <body className={`relative flex min-h-screen min-w-screen bg-white dark:bg-black ${inter.className}`}>
                     <ThemeProvider attribute="class">
-                        <Sidebar />
-                        <SidebarMobile />
-                        {children}
+                        <SidebarLayout>
+                            <Navigation />
+                        </SidebarLayout>
+                        <SidebarMobileLayout >
+                            <Navigation />
+                        </SidebarMobileLayout>
+                        <MainLayout>
+                            {children}
+                        </MainLayout>
                     </ThemeProvider>
                 </body>
             </html>

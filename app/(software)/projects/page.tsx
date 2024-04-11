@@ -1,6 +1,9 @@
+import { ListPage } from "@/components/Layouts/ListLayout";
+
 const ProjectPage = () => {
     return (
-        <div className="hidden lg:flex flex-1" />
+        <>
+        </>
     )
 }
 

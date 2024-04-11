@@ -26,7 +26,7 @@ const buttonVariants = cva(
                 greenOutline:
                     "bg-green-500 dark:bg-green-300 text-white dark:text-neutral-900 active:scale-[0.99]",
                 primary:
-                    "bg-white dark:bg-neutral-900 lg:hover:bg-neutral-200/80 dark:lg:hover:bg-neutral-200/20  active:scale-[0.99]",
+                    "bg-transparent hover:bg-neutral-200/80 dark:hover:bg-neutral-200/20  active:scale-[0.99]",
                 primaryOutline:
                     "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 active:scale-[0.99]",
                 secondary:

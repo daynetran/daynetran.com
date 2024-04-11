@@ -13,6 +13,6 @@ const Intro = () => {
 
 export default function Home() {
     return (
-        <PageLayout>Hi</PageLayout>
+        <PageLayout hasList={false}>Hi</PageLayout>
     );
 }
