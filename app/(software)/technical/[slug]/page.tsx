@@ -7,7 +7,7 @@ type ProjectPostPageProps = {
 }
 
 const ProjectPostPage = ({ params }: ProjectPostPageProps) => {
-    const mdxPath = path.join(process.cwd(), `/content/projects/${params.slug}.mdx`)
+    const mdxPath = path.join(process.cwd(), `/content/technical/${params.slug}.mdx`)
 
     return (
         <PostPage mdxPath={mdxPath} hasList={true} />

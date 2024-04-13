@@ -9,8 +9,8 @@ const ProjectListLayout = ({ children }: ProjectListLayoutProps) => {
     return (
         <>
             <ListLayout
-                group="projects"
-                header="Projects"
+                header="Technical Articles"
+                group="technical"
                 withSearch
                 withFilter
                 withSort

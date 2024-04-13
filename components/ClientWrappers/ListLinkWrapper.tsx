@@ -1,16 +1,18 @@
 "use client"
 
 import { usePathname } from "next/navigation";
-import { Button } from "../ui/button";
 
-type Props = {
+import { Button } from "@/components/ui/button";
+
+type PostLinkProps = {
     href: string;
     children: React.ReactNode;
 }
-export const PageLink = ({
+
+export const PostLink = ({
     href,
     children,
-}: Props) => {
+}: PostLinkProps) => {
     const active = href === usePathname();
 
     return (

@@ -1,0 +1,205 @@
+---
+title: What is an Operating System?
+---
+
+## An Operating System Is...
+
+**An operating system (OS) is the layer of software that manages a computer's resources for its users and their applications**. Operating systems run in a wide range of computer systems. They may be invisible to the end user, controlling embedded device such as toasters, gaming systems, and the many computers inside modern automobiles and airplanes. They are also essential to more general-purpose systems such as smartphones, desktop computers, and servers.
+
+Our discussion will focus on general-purpose operating systems because the technologies they need are a super-set of those needed for embedded systems. Increasingly, operating systems technologies developed for general-purpose computing are migrating to the embedded sphere. For example, early mobile phones had simple operating systems to manage their hardware and to run a handful of primitive applications. Today, smartphones - phones capable of running independent third-party applications - are the fastest growing segment of the mobile phone business. These devices require much more complete operating systems, with sophisticated resource management, multi-tasking, security, and failure isolation.
+
+Likewise, automobiles are increasingly software controlled, raising a host of operating system issues. Can anyone write software for your car? What if the software fails while you are driving down the highway? Can a car’s operating system be hijacked by a computer virus? Although this might seem far-fetched, researchers recently demonstrated that they could remotely turn off a car’s braking system through a computer virus introduced into the car’s computers via a hacked car radio. A goal of this book is to explain how to build more reliable and secure computer systems in a variety of contexts.
+
+---
+
+
+![[Figure 1.2 OS separates hardware from applications.png]] 
+
+---
+
+For general-purpose systems, users interact with applications, applications execute in an environment provided by the operating system, and the operating system mediates access to the underlying hardware, as shown in [[Figure 1.2 OS separates hardware from applications.png|Figure 1.2]]. and expanded in [[Figure 1.3 This shows the structure of a general purpose operating system, as an expansion of the simple view presented in Figure 1.2..png|Figure 1.3]].
+
+---
+
+![[Figure 1.3 This shows the structure of a general purpose operating system, as an expansion of the simple view presented in Figure 1.2..png]]
+
+**Figure 1.3**: This shows the structure of a general-purpose operating system, as an expansion of the view presented in Figure 1.2. At the lowest level, the hardware provides processors, memory, and a set of devices for storing data and communicating with the outside world. The hardware also provides primitives that the operating system can use for fault isolation and synchronization. The operating system runs as the lowest layer of software on the computer. It contains both a device-specific layer for managing the myriad hardware devices and a set of device-independent services provided to applications. Since the operating system must isolate malicious and buggy application from other applications or the operating system itself, much of the runs in a separate execution environment protected from application code. In turn, applications run in an execution context provided by the operating system kernel. The application context is much more than a simple abstraction on top of hardware devices: applications execute in a virtual environment that is more constrained (to prevent harm), more powerful (to mask hardware limitations), and more useful (via common services) than the underlying hardware.
+
+---
+
+How can an operating system run multiple applications? For this, operating systems need to play three roles:
+
+1. **Referee**. Operating systems manage resources shared between different applications running on the same physical machine. For example, an operating system can stop one program and start another. Operating systems isolate applications from each other, so a bug in one application does not corrupt other applications running on the same machine. An operating system must protect itself and other applications from malicious computer viruses. And since applications share physical resources, the operating system needs to decide which applications get which resources and when.
+
+2. **Illusionist**. Operating systems provide an abstraction of physical hardware to simplify application design. To write a "Hello world!" program, the developer does not need (much less, want!) to think about how much physical memory the system has, or how many other programs might be sharing the computer's resources. Instead, operating systems provide the illusion of nearly infinite memory, despite having a limited amount of physical memory. Likewise, they provide the illusion that each program has the computer's processors all to itself. Obviously, the reality is quite different! These abstractions let the developer write applications independent of the amount of physical memory on the system or the physical number of processors. Because applications are written to a higher level of abstraction, the operating system can invisibly change the amount of resources assigned to each application.
+
+3. **Glue.** Operating systems provide a set of common services that facilitate sharing among applications. As a result, cut and paste works uniformly across the system, or a file written by one application can be read by another. Many operating systems provide common user interface routines so applications can have the same "look and feel." Perhaps most importantly, operating systems provide a layer separating applications from hardware input and output (I/O) devices so applications can be written independently of the specific keyboard, mouse, and disk drive in use on a particular computer.
+
+---
+
+## Resource Sharing: Operating System as Referee
+
+Sharing is central to most uses of computers. Right now, my laptop is running a browser, podcast library, text editor, email program, document viewer, and newspaper. The operating system must somehow keep all of these activities separate, yet allow each the full capacity of the machine if the others are not running. At a minimum, when one program stops running, the operating system should let me run another. Better still, the operating system should let multiple applications run at the same time, so I can read email while I download a security patch to the system software.
+
+Even individual applications can do multiple tasks at once. For isntance, a web server's responsiveness improves if it handles multiple requests concurrently rather than waiting for each one to complete for starting the next one. The same holds for the browser - it is more responsive if it can start rendering a page while the rest of the page is transferring. On multiprocessors, the computation inside a parallel application can be split into separate units that can be run independently for faster execution. The operating system itself is an example of software written to do multiple tasks at once. As we illustrate throughout the book, the operating system is a customer of its own abstractions.
+
+Sharing raises several challenges for an operating system.
+
+### Challenge 1: Resource Allocation
+
+The operating system must keep all simultaneous activities separate, allocating resources to each as appropriate. A computer usually one has a few processors and a finite amount of memory, network bandwidth, and disk space. When there are multiple tasks to do at the same time, how does the operating system decide how many resources to give to each? Seemingly trivial differences in how resources are allocated can impact user-perceived performance. As we will see in Chapter 9, an operating system that allocates too little memory to a program slows down not only that particular program, but often other applications as well.
+
+To illustrate the difference between execution on a physical machine vs. on the abstract machine provided by the operating system, what should happen if an application executes an infinite loop?
+
+```JS
+while (true) {
+	;
+}
+```
+
+If programs ran directly on raw hardware, this code fragment would lock up the computer, making it completely non-responsive to user input. If the operating system ensures that each program gets its own slice of the computer's resources, a specific application might lock up, but other programs can proceed unimpeded. Additionally, the user can ask the operating system to force the looping program to exit.
+
+### Challenge 2: Isolation
+
+An error in one application should not disrupt other applications, or even the operating system itself. This is called **fault isolation**. Anyone who has taken an introductory computer science class knows the value of an operating system that can protect itself and other applications from programmer bugs. Debugging would be vastly harder if an error in one program could corrupt the data structures in other applications. Likewise, downloading and installing a screen saver or other application should not crash unrelated programs, provide a way for a malicious attacker to surreptitiously install a computer virus, or let one user access or change another's data without permission.
+
+Fault isolation requires restricting the behavior of applications to less than the full power of the underlying hardware. Otherwise, any application downloaded off the web, or any script embedded in a web page, could completely control the machine. Any application could install spyware into the operating system to log every keystroke you type, or record the password to every web site you visit. Without fault isolation provided by the operating system any bug in any program might irretrievably corrupt the disk. Error-prone or malignant applications could cause all sorts of havoc.
+
+### Challenge 3: Communication
+
+The flip side of isolation is the need for communication between different applications and different users. For example, a web site may be implemented by a cooperating set of applications: one to select advertisements, another to cache recent results, yet another to fetch and merge data from disk, and several more to cooperatively scan the web for new content to index. For this to work, the various programs must communicate with one another. If the operating system prevents bugs and malicious users and applications from affecting other users and applications, how does it also support communication to share results? In setting up boundaries, an operating system must also allow those boundaries to be crossed in carefully controlled ways when the need arises.
+
+In conclusion, an operating system is somewhat akin to that of a particularly patient kindergarten teacher in its role as referee. It balances needs, separates conflicts, and facilitates sharing. One user should not be allowed to monopolize system resources or to access or corrupt another user's files without permission; a buggy application should not crash the operating system or other unrelated applications; and yet, applications must also work together. Enforcing and balancing these concerns is a central role of the operating system.
+
+---
+
+## Masking Limitations: Operating System as Illusionist
+
+A second important role of an operating systems is to mask the restrictions inherent in computer hardware. Physical constraints limit hardware resources - a computer has only a limited number of processors and a limited amount of physical memory, network bandwidth, and disk. Further, since the operating system decides how to divide its fixed resources among the various applications running at each moment, a particular application can have differing amounts of resources from time to time, even when running them on the same hardware. While some applications are designed to take advantage of a computer's specific hardware configuration and resource assignment, most programmers prefer to use a higher level of abstraction.
+
+**Virtualization** provides an application with the illusion of resources that are not physically present. For example, the operating system can provide the abstraction that each application has a dedicated processor, even though at a physical level there may be only a single processor shared among all the applications running on the computer.
+
+With the right hardware and operating system support, most physical resources can be virtualized. For example, hardware provides only a small, finite amount of memory, while the operating system provides applications the illusion of a nearly infinite amount of memory. Wireless networks drop or corrupt packets; the operating system masks these failures to provide the illusion of a reliable service. At a physical level, magnetic disk and flash RAM support block reads and writes, where the size of the block depends on the physical device characteristics, addressed by a device-specific block number. Most programmers prefer to work with byte-addressable files organized by name into hierarchical directories. Even the type of processor can be virtualized to allow the same, unmodified application to run on a smartphone, tablet, and laptop computer.
+
+---
+
+![[Figure 1.4 A guest operating system running inside a virtual machine.png]]
+**Figure 1.4**: A guest operating system running inside a virtual machine
+
+---
+Pushing this one step further, some operating systems virtualize the entire computer, running the operating system as an application on top of another operating system. This is called creating a **virtual machine**. The operating system running in the virtual machine, called the **guest operating system**, thinks it is running on a real, physical machine, but this is an illusion presented by the true operating system underneath.
+
+One benefit of a virtual machine is application portability. If a program runs only on an old version of an operating system, it can still work on a new system running a virtual machine that hosts the application on the old operating system (running atop the new one). Virtual machines also aid debugging. If an operating system can be run as an application, then its developers can set breakpoints, stop the kernel, and single step their code just as they would when debugging an application.
+
+Throughout the book, we discuss techniques that the operating system uses to accomplish these and other illusions. In each case, the operating system provides a more convenient and flexible programming abstraction than that provided by the underlying hardware.
+
+---
+
+## Providing Common Services: Operating System as Glue
+
+Operating systems play a third key role: providing a set of common, standard services to applications to simplify and standardize their design. An example is the web server described earlier in this chapter. The operating system hides the specifics of how the network and disk devices work, providing a simpler abstraction based on receiving / sending reliable streams of bytes and reading / writing named files. This lets the web server focus on its core task - decoding incoming requests and filling them - rather than on formatting data into individual network packets and disk blocks.
+
+An important reason for the operating system to provide common services, rather than letting each application provide its own, is to facilitate sharing among applications. The web server must be able to read the file that the text editor wrote. For applications to share files, they must be stored in a standard format, with a standard system for managing file directories. Most operating systems also provide a standard way for applications to pass messages and to share memory.
+
+The choice of which services an operating system should provide is often a judgement call. For example, computers can come configured with a blizzard of different devices: different graphics co-processors and pixel formats, different network interfaces (WiFi, Ethernet, and Bluetooth), different disk drives (SCSI, IDE), different device interfaces (USB, Firewire), and different sensors (GPS, accelerometers), not to mention different versions of each. Most applications can ignore these differences, by using only a generic interface provided by the operating system. For other applications, such as a database, the specific disk drive may matter quite a bit. Fort applications that can operate at a higher level of abstraction, this operating system serves as an interoperability layer so that both applications and devices can evolve independently.
+
+Another standard service in most modern operating systems is the graphical user interface library. Both Microsoft's and Apple's operating system provides a set of standard user interface widgets. This facilitates a common "look" and "feel" to users so that frequent operations - such as pull down menus and "cut" and "paste" commands - are handled consistently across applications.
+
+Most of the code in an operating system implements these common services. However, much of the complexity of operating systems is due to resource sharing and the masking of hardware limits. Because common services uses the abstractions provided by the other two operating system roles, this book will focus primarily on the operating system as a referee and as an illusionist.
+
+---
+
+## Operating System Design Patterns
+
+The challenges that operating systems address are not unique - they apply to many different computer domains. Many complex software systems have multiple users, run programs written by third-party developers, and/or need to coordinate  many simultaneous activities. These pose questions of resource allocation, fault isolation, communication, abstractions of physical hardware, and how to provide a useful set of common services for software developers. Not only are the challenges the same, but often the solutions are, as well: these systems use many of the design patterns and techniques described in this book.
+
+We next describe some of the systems with design challenges similar to those found in operating system:
+
+### Example 1: Cloud Computing
+
+Cloud computing is a model of computing where applications run on shared computing and storage infrastructure in large-scale data centers instead of on the user's own computers. Cloud computing addresses many of the same issues as in operating systems in terms of sharing, abstraction, and common services.
+
+1. **Referee**: How are resources allocated between competing applications running in the cloud? How are buggy or malicious applications prevented from disrupting other applications?
+2. **Illusionist**: The computing resources in the cloud are continually evolving: what abstractions are provided to isolate application developers from changes in the underlying hardware?
+3. **Glue**: Cloud services often distribute their work across different machines. What abstractions should cloud software provide to help services coordinate and share data between their various activities?
+
+---
+
+![[Figure 1.5 Cloud computing software provides a convenient abstraction of server resources to cloud applications.png]]
+**Figure 1.5**: Cloud computing software provides a convenient abstraction of server resources to cloud applications.
+
+---
+
+### Example 2: Web Browsers
+
+Web browsers such as Chrome, Internet Explorer, Firefox, and Safari, play a role similar to an operating system. Browsers load and display web pages, but, as we mentioned earlier, many pages embed scripting programs that the browser must execute. These scripts can be buggy or malicious; hackers have used them to take over vast numbers of home computers. Like an operating system, the browser must isolate the user, other web sites, and even the browser itself from errors or malicious activity by these scripts. Similarly, most browsers have a plug-in architecture for supporting extensions, and these extensions must also be isolated to prevent them from causing harm.
+
+1. **Referee**: How can a browser ensure responsiveness when a user has multiple tabs open with each tab running a script from a different web site? How can we limit web scripts and plug-ins to prevent bugs from crashing the browser and malicious scripts from accessing sensitive user data?
+2. **Illusionist**: Many web services are geographically distributed to improve the user experience. Not only does this put servers closer to users, but if one server crashes or its network connection has problems, a browser can connect to a different site. The user in most cases does not notice the difference, even when updating a shopping cart or web form. How does the browser make server changes transparent to the user?
+3. **Glue**: How does the browser achieve a portable execution environment for scripts that work consistently across operating systems and hardware platforms?
+
+---
+
+![[figure 1.6 a web browser isolates scripts and plug-ins from accessing privileged resources on the host operating system.png]]
+**Figure 1.6:** A web browser isolates scripts and plug-ins from accessing privileged resources on the host operating system.
+
+---
+
+### Example 3: Media Players
+
+Media players, such as Flash and Silverlight, are often packaged as browser plug-ins but they themselves provide an execution environment for scripting programs. Thus, these systems face many of the same issues as both browsers and operating systems on which they run: isolation of buggy or malicious code, concurrent background and foreground tasks, and plug-in architectures.
+
+1. **Referee**: Media players are often in the news for being vulnerable to some new, malicious attack. How should media players sandbox malicious or buggy scripts to prevent them from corrupting the host machine?
+2. **Illusionist**: Media applications are often both computationally intensive and highly interactive. How do they coordinate foreground and background activities to maintain responsiveness?
+3. **Glue**: High-performance graphics hardware rapidly evolves in response to the demands of the video game market. How do media players provide a set of standard APIs for scripts to work  across a diversity of graphics accelerators?
+
+---
+
+### Example 4: Multiplayer Games
+
+Multiple games often have extensibility APIs to allow third party software vendors to extend the game in significant ways. Often these extensions are miniature games in their own right, yet game extensions must also be prevented from breaking the overall rules of the game.
+
+1. **Referee:** Many games try to offload work to client machines to reduce server load and improve responsiveness, but this opens up games to the threats of users installing specialized extensions to gain an unfair advantage. How do game designers set limits for extensions and game players to ensure a level playing field?
+2. **Illusionist**: If objects in the game are spread across client and server machines, is that distinction visible to extension code or is the interface at a higher level?
+3. **Glue**: Most successful games have a large number of extensions; how should a game designer set up their APIs to make it easier to foster a community of developers?
+
+---
+
+### Example 5: Multi-User Database Systems
+
+Multi-user database systems, such as Oracle and Microsoft's SQL Server, allow large organizations to store, query, and update large data sets, such as detailed records of every purchase ever made at Amazon or Walmart. Large scale data analysis greatly optimizes business operations, but, as a consequence, databases face many of the same challenges as operating systems. They are simultaneously accessed by many different users in many different locations. They therefore must allocate resources among different user requests, isolate concurrent updates to shared data, and ensure that data is stored consistently on disk. In fact, several of the technique we discuss in Ch. 14 were originally developed for database systems.
+
+1. **Referee**: How should resources be allocated among the various users of a database? How does the database enforce data privacy so that only authorized users access relevant data?
+2. **Illusionist**: How does the database mask machine failures so that data is always stored consistently regardless of when the failure occurs?
+3. **Glue**: What common services make it easier to develop database applications?
+
+---
+
+![[figure 1.7 databases perform many of the tasks of an operating system.png]]
+**Figure 1.7**: Databases perform many of the tasks of an operating system: they allocate resources among user queries to ensure responsiveness, they mask differences in the underlying operating system and hardware, and they provide a convenient programming abstraction to developers.
+
+---
+
+### Example 6: Parallel Applications
+
+Parallel applications are programs designed to take advantage of multiple processors on a single computer. Each application divides its work onto a fixed number of processors and must ensure that accesses to shared data structures are coordinated to preserve consistency. While some parallel programs directly use the services provided by the underlying operating system, others need careful control of the assignment of work to processors to achieve good performance. These systems interpose a runtime on top of the operating system to manage user-level parallelism, essentially building a mini-operating system on top of the underlying one.
+
+1. **Referee**: When there are more tasks to perform than processors, how does the runtime system decide which tasks to perform first?
+2. **Illusionist**: How does the runtime system hide physical details of the hardware from the programmer, such as the number of processors or the inter-processor communication latency?
+3. **Glue**: Highly concurrent data structures can make it easier to write efficient parallel programs; how do we program trees, hash tables, and lists so that they can be used by multiple processors at the same time?
+
+---
+
+### Example 7: The Internetaptterns
+
+The internet is used everyday by a huge number of people, but at the physical layers, those users share the same underlying resources. How should the Internet handle resource contention? Because of its diverse user base, the Internet is rife with malicious behavior, such as denial-of-service attacks that flood traffic on certain links to prevent legitimate users from communicating. Various attempts are underway to design solutions that let the Internet continue to function despite such attacks.
+
+1. **Referee**: Should the Internet treat all users identically (e.g., network neutrality) or should ISPs be able to favor some uses over others? Can the Internet be redesigned to prevent denial-of-service, spam, phishing, and other malicious behaviors?
+2. **Illusionist**: The Internet provides the illusion of a single worldwide network that can deliver a packet from any machine on the Internet to any other machine. However, network hardware is composed of many discrete network elements with: (i) the ability to transmit limited size packets over a limited distance, and (ii) some chance that packets are garbled in the process. The Internet transforms the network into something more useful for applications like the web- a facility to reliably transmit data of arbitrary length, anywhere in the world.
+3. **Glue**: The Internet protocol suite was explicitly designed to act as an interoperability layer that lets network applications evolve independently of changes in network hardware, and vice-versa. Does the success of the Internet hold any lessons for operating system design?
+
+## Conclusion
+
+Many of these systems use the same techniques and design patterns as operating systems. Studying operating systems is a great way to understand how these other systems work. In a few cases, different mechanisms are used to achieve the same goals, but, even here, the boundaries are fuzzy. For example, browsers often use compile-time checks to prevent scripts from gaining control over them, while most operating systems use hardware-based protection to limit application programs from taking over the machine. More recently, however, some smartphone operating systems have begun to use the same compile-time techniques as browsers to protect against malicious mobile applications. in turn, some browsers have begun to use operating system hardware-based protection to improve the isolation they provide.
+
+To avoid spreading the discussion too thinly, this book focuses on how operating systems work. Just as it is easier to learn a second computer programming language after you become fluent in the first, it is better to see aptternshow operating systems principles apply in one context before learning how they can be applied in other settings. We hope and expect, however, that you can apply these concepts in this book more widely than just operating system design.

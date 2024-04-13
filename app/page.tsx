@@ -1,6 +1,4 @@
 
-import PageLayout from "@/components/Layouts/PageLayout";
-
 const Intro = () => {
     return (
         <div >
@@ -11,8 +9,6 @@ const Intro = () => {
 
 export default function Home() {
     return (
-        <PageLayout hasList={false}>
-            <Intro />
-        </PageLayout>
+        <Intro />
     );
 }

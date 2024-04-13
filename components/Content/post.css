@@ -1,0 +1,23 @@
+h1 {
+    @apply font-bold text-3xl my-9
+}
+
+h2 {
+    @apply font-bold text-2xl mt-9 mb-7
+}
+
+h3 {
+    @apply font-semibold text-xl mt-7 mb-5
+}
+
+p {
+    @apply dark:text-neutral-400 mb-5
+}
+
+/* Import highlight.js theme of your choice */
+/*
+  *  h1: ({ children }) => <h1 className="font-bold text-3xl my-9">{children}</h1>,
+   *  h2: ({ children }) => <h2 className="font-bold text-2xl mt-9 mb-7">{children}</h2>,
+    * h3: ({ children }) => <h3 className="font-semibold text-xl mt-7 mb-5">{children}</h3>,
+    * p: ({ children }) => <p className="dark:text-neutral-400 mb-5 ">{children}</p>,
+    */

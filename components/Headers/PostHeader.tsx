@@ -8,28 +8,31 @@ import { HeaderContainer } from "@/components/Containers/HeaderContainer";
 import { useMobileSidebarSheet } from "@/stores/use-mobile-sidebar-sheet"
 import { useZenMode } from "@/stores/use-zen-mode";
 
-type PageHeaderProps = {
-    title?: string;
+type PostHeaderProps = {
+    frontmatter: {
+        title: string,
+    }
     withSearch?: boolean;
     withFilter?: boolean;
     withSort?: boolean;
     hasList: boolean
 }
 
-export const PageHeader = ({
-    title = "",
+export const PostHeader = ({
+    frontmatter,
     hasList = false,
     withSearch = false,
     withFilter = false,
     withSort = true,
-}: PageHeaderProps) => {
+}: PostHeaderProps) => {
+    const title = frontmatter.title;
     const { open } = useMobileSidebarSheet();
     const router = useRouter();
     const topPathname = "/" + usePathname().split("/")[1];
     const { zenOn } = useZenMode()
     return (
         <HeaderContainer>
-            <section className="flex gap-3 items-center justify-start">
+            <section className="flex-1 flex gap-3 items-center justify-start w-1/2">
                 {hasList && (
                     <Button
                         size="rounded"
@@ -50,7 +53,7 @@ export const PageHeader = ({
                     </Button>
                 )}
                 {title && (
-                    <h1 className="font-semibold text-lg">
+                    <h1 className="flex-1 font-semibold text-lg truncate ...">
                         {title}
                     </h1>
                 )}

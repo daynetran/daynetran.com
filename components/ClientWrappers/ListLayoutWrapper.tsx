@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation"
 import { useZenMode } from "@/stores/use-zen-mode";
 
-const ListClientLayout = ({ children }: { children: React.ReactNode }) => {
+export const ListLayoutWrapper = ({ children }: { children: React.ReactNode }) => {
     const { isZen } = useZenMode();
     const pathname = usePathname();
 
@@ -16,12 +16,10 @@ const ListClientLayout = ({ children }: { children: React.ReactNode }) => {
             <aside
                 className={cn(
                     hasPost,
-                    "flex-col gap-8 overflow-auto w-full lg:w-72 2xl:w-96 bg-white dark:bg-neutral-900 lg:border-r border-neutral-200 dark:border-neutral-800",
+                    "flex-col gap-8 overflow-y-auto w-full lg:w-72 2xl:w-96 bg-white dark:bg-neutral-900 lg:border-r border-neutral-200 dark:border-neutral-800",
                 )}>
                 {children}
             </aside>
         </>
     )
 }
-
-export default ListClientLayout;

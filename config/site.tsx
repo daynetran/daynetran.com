@@ -19,7 +19,7 @@ import {
 type RouteGroup = {
     label: string | null;
     color: "blue" | "green" | "red" | "primary";
-    items: Route[];
+    routes: Route[];
 }
 
 type Route = {
@@ -32,14 +32,14 @@ type Route = {
 }
 
 /**
- * navigationItems is an array of objects, and each object represents a page of the application as
+ * navigationRoutes is an array of objects, and each object represents a page of the application as
  * well as several features that help define its layout and style.
  */
-export const navigationItems: RouteGroup[] = [
+export const navigationRoutes: RouteGroup[] = [
     {
         label: null,
         color: "primary",
-        items: [
+        routes: [
             {
                 href: "/",
                 label: "Home",
@@ -53,7 +53,7 @@ export const navigationItems: RouteGroup[] = [
     {
         label: "Me",
         color: "red",
-        items: [
+        routes: [
             {
                 href: "/bookmarks",
                 label: "Bookmarks",
@@ -83,7 +83,7 @@ export const navigationItems: RouteGroup[] = [
     {
         label: "Software",
         color: "blue",
-        items: [
+        routes: [
             {
                 href: "/projects",
                 label: "Projects",
@@ -93,7 +93,7 @@ export const navigationItems: RouteGroup[] = [
                 isExternal: false,
             },
             {
-                href: "/technicals",
+                href: "/technical",
                 label: "Technical Articles",
                 icon: TechArticleIcon,
                 trailingAccessory: null,
@@ -121,7 +121,7 @@ export const navigationItems: RouteGroup[] = [
     {
         label: "Meditations",
         color: "green",
-        items: [
+        routes: [
             {
                 href: "/data-stories",
                 label: "Data Stories",
@@ -151,7 +151,7 @@ export const navigationItems: RouteGroup[] = [
     {
         label: "Socials",
         color: "primary",
-        items: [
+        routes: [
             {
                 href: "https://twitter.com/RealDayneTran",
                 label: "Twitter",
