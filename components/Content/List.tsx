@@ -37,7 +37,7 @@ export const List = ({
                             >
                                 <div className="flex flex-col gap-1">
                                     <h1 className="font-semibold">{title}</h1>
-                                    <p className="text-sm font-light text-neutral-400">
+                                    <p className="text-sm font-light ">
                                         {date &&
                                             date.toLocaleDateString(
                                                 undefined,

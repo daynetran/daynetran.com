@@ -118,36 +118,36 @@ export const navigationRoutes: RouteGroup[] = [
             },
         ]
     },
-    {
-        label: "Meditations",
-        color: "green",
-        routes: [
-            {
-                href: "/data-stories",
-                label: "Data Stories",
-                icon: DataStoryIcon,
-                trailingAccessory: null,
-                trailingAction: null,
-                isExternal: false,
-            },
-            {
-                href: "/anecdotes",
-                label: "Anecdotes",
-                icon: AnecdoteIcon,
-                trailingAccessory: null,
-                trailingAction: null,
-                isExternal: false,
-            },
-            {
-                href: "/satire",
-                label: "Satire",
-                icon: SatireIcon,
-                trailingAccessory: null,
-                trailingAction: null,
-                isExternal: false,
-            },
-        ]
-    },
+    // {
+    //     label: "Meditations",
+    //     color: "green",
+    //     routes: [
+    //         {
+    //             href: "/data-stories",
+    //             label: "Data Stories",
+    //             icon: DataStoryIcon,
+    //             trailingAccessory: null,
+    //             trailingAction: null,
+    //             isExternal: false,
+    //         },
+    //         {
+    //             href: "/anecdotes",
+    //             label: "Anecdotes",
+    //             icon: AnecdoteIcon,
+    //             trailingAccessory: null,
+    //             trailingAction: null,
+    //             isExternal: false,
+    //         },
+    //         {
+    //             href: "/satire",
+    //             label: "Satire",
+    //             icon: SatireIcon,
+    //             trailingAccessory: null,
+    //             trailingAction: null,
+    //             isExternal: false,
+    //         },
+    //     ]
+    // },
     {
         label: "Socials",
         color: "primary",

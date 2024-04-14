@@ -29,9 +29,6 @@ code[data-line-numbers-max-digits="3"]>[data-line]::before {
     width: 3rem;
 }
 
-li {
-    @apply my-3
-}
 
 figure code {
     @apply py-4 w-fit rounded-md w-full;
