@@ -1,17 +1,24 @@
-import path from "path";
+import { getPostSlugs } from "@/actions/server";
 
 import { PostPage } from '@/components/Post/PostPage';
 
-type ProjectPostPageProps = {
+export const generateStaticParams = async () => {
+    const slugs = await getPostSlugs('technical')
+    const params = slugs.map((x) => ({ slug: x }))
+    return params
+}
+
+type TechnicalPostPageProps = {
     params: { slug: string };
 }
 
-const ProjectPostPage = ({ params }: ProjectPostPageProps) => {
-    const mdxPath = path.join(process.cwd(), `/content/technical/${params.slug}.mdx`)
-
+const TechnicalPostPage = ({ params }: TechnicalPostPageProps) => {
     return (
-        <PostPage mdxPath={mdxPath} hasList={true} />
+        <PostPage
+            slug={params.slug}
+            group={'technical'}
+        />
     )
 }
 
-export default ProjectPostPage;
+export default TechnicalPostPage;

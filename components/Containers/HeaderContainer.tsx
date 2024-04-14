@@ -4,7 +4,7 @@
  */
 export const HeaderContainer = ({ children }: { children: React.ReactNode }) => {
     return (
-        <header className="w-full sticky top-0 py-3 px-3 lg:px-5 bg-white/80 dark:bg-transparent backdrop-blur-lg flex items-center justify-between bg-green-300">
+        <header className="w-full sticky top-0 py-5 px-3 lg:px-5 bg-white/80 dark:bg-transparent backdrop-blur-lg flex items-center justify-between bg-green-300">
             {children}
         </header>
     )

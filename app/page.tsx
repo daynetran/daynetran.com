@@ -1,14 +1,13 @@
+import { PostPage } from '@/components/Post/PostPage';
 
-const Intro = () => {
+const HomePage = () => {
     return (
-        <div >
-            Hi, I&apos;m Dayne.
-        </div>
+        <PostPage
+            slug={'home'}
+            group={'home'}
+            showMetadata={false}
+        />
     )
 }
 
-export default function Home() {
-    return (
-        <Intro />
-    );
-}
+export default HomePage;

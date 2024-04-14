@@ -1,16 +1,23 @@
-import path from "path";
+import { getPostSlugs } from "@/actions/server";
 
 import { PostPage } from '@/components/Post/PostPage';
+
+export const generateStaticParams = async () => {
+    const slugs = await getPostSlugs('tier-lists')
+    const params = slugs.map((x) => ({ slug: x }))
+    return params
+}
 
 type TierListPostPageProps = {
     params: { slug: string };
 }
 
 const TierListPostPage = ({ params }: TierListPostPageProps) => {
-    const mdxPath = path.join(process.cwd(), `/content/tier-lists/${params.slug}.mdx`)
-
     return (
-        <PostPage mdxPath={mdxPath} hasList={true} />
+        <PostPage
+            slug={params.slug}
+            group={'tier-lists'}
+        />
     )
 }
 

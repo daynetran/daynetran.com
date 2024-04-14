@@ -28,7 +28,7 @@ const buttonVariants = cva(
                 primary:
                     "bg-transparent hover:bg-neutral-200/80 dark:hover:bg-neutral-200/20  active:scale-[0.99] text-wrap",
                 primaryOutline:
-                    "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 active:scale-[0.99]",
+                    "bg-neutral-200 dark:bg-neutral-700 active:scale-[0.99]",
                 secondary:
                     "bg-secondary text-secondary-foreground lg:hover:bg-secondary/80",
                 ghost: "lg:hover:bg-accent lg:hover:text-accent-foreground",
@@ -37,9 +37,9 @@ const buttonVariants = cva(
             size: {
                 default: "h-8 px-2 py-1",
                 sm: "h-9 rounded-md px-3",
-                lg: "h-11 rounded-md px-8",
+                lg: "h-full rounded-md px-8",
                 icon: "h-10 w-10",
-                rounded: "p-1 rounded-full",
+                rounded: "p-2 rounded-full",
                 link: "px-2 py-1 h-full w-full"
             },
         },

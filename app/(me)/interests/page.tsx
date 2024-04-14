@@ -1,10 +1,13 @@
+import { PostPage } from '@/components/Post/PostPage';
 
-const InterestPage = () => {
+const HomePage = () => {
     return (
-        <div className="flex w-full h-screen  justify-center items-center">
-            Interest
-        </div>
+        <PostPage
+            slug={'home'}
+            group={'home'}
+            showMetadata={false}
+        />
     )
 }
 
-export default InterestPage;
+export default HomePage;

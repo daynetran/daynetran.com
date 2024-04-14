@@ -34,7 +34,7 @@ export const ListHeader = ({
                     <MenuIcon className="h-4 w-4" />
                 </Button>
                 {title && (
-                    <h1 className="w-full flex-1 font-semibold text-lg truncate ...">
+                    <h1 className="w-full flex-1 font-semibold text-md truncate ...">
                         {title}
                     </h1>
                 )}

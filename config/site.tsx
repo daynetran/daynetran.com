@@ -14,6 +14,7 @@ import {
     LinkedinIcon,
     TwitterIcon,
     LucideIcon,
+    BookHeartIcon,
 } from "lucide-react";
 
 type RouteGroup = {
@@ -78,6 +79,14 @@ export const navigationRoutes: RouteGroup[] = [
                 trailingAction: null,
                 isExternal: false,
             },
+            {
+                href: "/heroes",
+                label: "Heroes",
+                icon: BookHeartIcon,
+                trailingAccessory: null,
+                trailingAction: null,
+                isExternal: false,
+            }
         ]
     },
     {

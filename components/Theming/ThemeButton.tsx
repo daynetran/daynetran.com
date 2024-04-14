@@ -22,20 +22,22 @@ export const ThemeButton = () => {
     if (!mounted) {
         return null;
     }
-    let message = ""
-    if (theme === "light") {
-        message = "Turn on dark mode"
-    } else {
-        message = "Turn on light mode"
-    }
 
     const handleClick = () => {
         theme === "light" ? setTheme("dark") : setTheme("light")
     }
 
     return (
-        <Button size="rounded" variant="primary" onClick={handleClick}>
-            {theme === "light" ? <Sun size={16} /> : <Moon size={16} />}
+        <Button
+            size="rounded"
+            variant="primary"
+            onClick={handleClick}
+            title="Toggle Theme"
+        >
+            {theme === "light"
+                ? <Sun className="h-4 w-4" />
+                : <Moon className="h-4 w-4" />
+            }
         </Button>
     )
 }

@@ -1,13 +1,24 @@
 figure {
-    @apply w-full pb-8 overflow-x-auto;
+    @apply w-screen pt-5 rounded-md;
 }
 
+figure pre {
+    @apply flex w-screen rounded-md;
+}
+
+figure code {
+    @apply w-full p-4 px-4 rounded-md overflow-x-auto;
+}
+
+figure code>[data-line] {
+    @apply pr-12
+}
 
 span code {
-    @apply p-1 rounded-md
+    @apply p-0.5 rounded-md
 }
 
-code {
+figure code {
     counter-reset: line;
 }
 
@@ -21,24 +32,14 @@ figure code>[data-line]::before {
 }
 
 
-code[data-line-numbers-max-digits="2"]>[data-line]::before {
+figure code[data-line-numbers-max-digits="2"]>[data-line]::before {
     width: 2rem;
 }
 
-code[data-line-numbers-max-digits="3"]>[data-line]::before {
+figure code[data-line-numbers-max-digits="3"]>[data-line]::before {
     width: 3rem;
 }
 
-
-figure code {
-    @apply py-4 w-fit rounded-md w-full;
-}
-
-span {}
-
-pre [data-line] {
-    padding: 0 1rem;
-}
 
 
 code[data-theme*=" "],
@@ -51,13 +52,4 @@ code[data-theme*=" "] span {
 .dark code[data-theme*=" "] span {
     color: var(--shiki-dark);
     background-color: var(--shiki-dark-bg);
-}
-
-@media (prefers-color-scheme: dark) {
-
-    code[data-theme*=" "],
-    code[data-theme*=" "] span {
-        color: var(--shiki-dark);
-        background-color: var(--shiki-dark-bg);
-    }
 }

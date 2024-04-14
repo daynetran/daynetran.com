@@ -1,6 +1,6 @@
 export const ContentContainer = ({ children }: { children: React.ReactNode }) => {
     return (
-        <section className="flex px-2 lg:px-3 py-0 w-full items-center justify-center ">
+        <section className="flex px-4 lg:px-3 py-0 w-full items-center justify-center ">
             {children}
         </section>
     )

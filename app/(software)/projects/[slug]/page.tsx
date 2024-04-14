@@ -1,16 +1,25 @@
-import path from "path";
+import path, { join } from "path";
 
 import { PostPage } from '@/components/Post/PostPage';
+import { getPostSlugs } from "@/actions/server";
 
 type ProjectPostPageProps = {
     params: { slug: string };
 }
 
+export const generateStaticParams = async () => {
+    const slugs = await getPostSlugs('projects')
+    const params = slugs.map((x) => ({ slug: x }))
+    return params
+}
+
 const ProjectPostPage = ({ params }: ProjectPostPageProps) => {
-    const mdxPath = path.join(process.cwd(), `/content/projects/${params.slug}.mdx`)
 
     return (
-        <PostPage mdxPath={mdxPath} hasList={true} />
+        <PostPage
+            slug={params.slug}
+            group={'projects'}
+        />
     )
 }
 

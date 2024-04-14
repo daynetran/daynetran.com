@@ -24,7 +24,7 @@ export const List = ({
 }: ListProps) => {
     return (
         <ContentContainer>
-            <ol className="flex flex-col items-center gap-3 w-full text-wrap">
+            <ol className="flex flex-col items-center gap-1 w-full text-wrap">
                 {sources.map((source, i) => {
                     const { href, title, date } = extract(source);
                     return (
@@ -40,9 +40,8 @@ export const List = ({
                                     <p className="text-sm font-light ">
                                         {date &&
                                             date.toLocaleDateString(
-                                                undefined,
+                                                'en-US',
                                                 {
-                                                    weekday: "long",
                                                     year: "numeric",
                                                     month: "long",
                                                     day: "numeric",
