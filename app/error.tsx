@@ -1,5 +1,7 @@
 'use client'
 
+import { ContentContainer } from "@/components/Containers/ContentContainer"
+
 export default function Error({
     error,
     reset,
@@ -8,9 +10,10 @@ export default function Error({
     reset: () => void
 }) {
     return (
-        <div>
-            <h2>Something went wrong!</h2>
-            <button onClick={() => reset()}>Try again</button>
-        </div>
+        <ContentContainer>
+            <div>
+                Hello there
+            </div>
+        </ContentContainer>
     )
 }

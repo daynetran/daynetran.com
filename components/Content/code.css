@@ -1,28 +1,28 @@
-figure {
+.post figure {
     @apply w-screen pt-5 rounded-md;
 }
 
-figure pre {
+.post figure pre {
     @apply flex w-screen rounded-md;
 }
 
-figure code {
+.post figure code {
     @apply w-full p-4 px-4 rounded-md overflow-x-auto;
 }
 
-figure code>[data-line] {
+.post figure code>[data-line] {
     @apply pr-12
 }
 
-span code {
+.post span code {
     @apply p-0.5 rounded-md
 }
 
-figure code {
+.post figure code {
     counter-reset: line;
 }
 
-figure code>[data-line]::before {
+.post figure code>[data-line]::before {
     counter-increment: line;
     content: counter(line);
     width: 1rem;
@@ -32,24 +32,24 @@ figure code>[data-line]::before {
 }
 
 
-figure code[data-line-numbers-max-digits="2"]>[data-line]::before {
+.post figure code[data-line-numbers-max-digits="2"]>[data-line]::before {
     width: 2rem;
 }
 
-figure code[data-line-numbers-max-digits="3"]>[data-line]::before {
+.post figure code[data-line-numbers-max-digits="3"]>[data-line]::before {
     width: 3rem;
 }
 
 
 
-code[data-theme*=" "],
-code[data-theme*=" "] span {
+.post code[data-theme*=" "],
+.post code[data-theme*=" "] span {
     color: var(--shiki-light);
     background-color: var(--shiki-light-bg);
 }
 
-.dark code[data-theme*=" "],
-.dark code[data-theme*=" "] span {
+.dark .post code[data-theme*=" "],
+.dark .post code[data-theme*=" "] span {
     color: var(--shiki-dark);
     background-color: var(--shiki-dark-bg);
 }

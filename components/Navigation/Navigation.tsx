@@ -9,7 +9,7 @@ const colors = ["blue", "green", "primary", "red"]
 
 /**
  * The 'Navigation' React Component is a Server Component that returns navigation JSX. The JSX 
- * includes the list of navigation routes, where each item produces section and a list of links.
+ * includes the list of navigation routes, where each item produces a section and a list of links.
  * It is important to note that this Server Component consumes a Client Component that itself passes
  * Server Component JSX as children. The Client Component reads the top-level pathname of the URL, 
  * and it outlines the active navigation route.
@@ -30,7 +30,7 @@ export const Navigation: FC = () => {
                                         return;
                                     }
                                     return (
-                                        < NavigationLink
+                                        <NavigationLink
                                             key={`${section.label}_${route.label}`}
                                             href={route.href}
                                             color={section.color}

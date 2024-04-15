@@ -1,5 +1,8 @@
+import { Suspense } from "react";
+
 import { getPostSlugs } from "@/actions/server";
 
+import { Loading } from "@/components/Loaders/Loading";
 import { PostPage } from '@/components/Post/PostPage';
 
 export const generateStaticParams = async () => {
@@ -14,10 +17,12 @@ type TechnicalPostPageProps = {
 
 const TechnicalPostPage = ({ params }: TechnicalPostPageProps) => {
     return (
-        <PostPage
-            slug={params.slug}
-            group={'technical'}
-        />
+        <Suspense fallback={<Loading />}>
+            <PostPage
+                slug={params.slug}
+                group={'technical'}
+            />
+        </Suspense>
     )
 }
 

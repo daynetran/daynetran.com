@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useMobileSidebarSheet } from "@/stores/use-mobile-sidebar-sheet";
 import { Button } from "@/components/ui/button"
 
-type Props = {
+type NavigationLinkProps = {
     href: string;
     children: React.ReactNode;
     color: "red" | "blue" | "green" | "primary";
@@ -19,7 +19,7 @@ export const NavigationLink = ({
     href,
     children,
     color
-}: Props) => {
+}: NavigationLinkProps) => {
     const topPathname = "/" + usePathname().split("/")[1];
     const active = href === topPathname;
 

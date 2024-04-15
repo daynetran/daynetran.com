@@ -22,7 +22,7 @@ export const SidebarMobileLayout = ({ children }: { children: React.ReactNode })
 
     return (
         <Sheet open={isOpen} onOpenChange={toggle}>
-            <SheetContent side={"left"} className="flex flex-col py-0 px-0 dark:bg-neutral-900 overflow-auto transition-none gap-8">
+            <SheetContent side={"left"} className="flex flex-col py-0 px-0 dark:bg-neutral-900 overflow-auto transition-none gap-3">
                 <SidebarHeader />
                 <ContentContainer>
                     {children}

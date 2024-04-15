@@ -1,6 +1,8 @@
 import { getPostSlugs } from "@/actions/server";
+import { Loading } from "@/components/Loaders/Loading";
 
 import { PostPage } from '@/components/Post/PostPage';
+import { Suspense } from "react";
 
 export const generateStaticParams = async () => {
     const slugs = await getPostSlugs('tier-lists')
@@ -14,10 +16,12 @@ type TierListPostPageProps = {
 
 const TierListPostPage = ({ params }: TierListPostPageProps) => {
     return (
-        <PostPage
-            slug={params.slug}
-            group={'tier-lists'}
-        />
+        <Suspense fallback={<Loading />}>
+            <PostPage
+                slug={params.slug}
+                group={'tier-lists'}
+            />
+        </Suspense>
     )
 }
 

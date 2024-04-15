@@ -1,13 +1,11 @@
+import { Suspense } from "react";
 import { Viewport } from "next";
-import { cwd } from "process";
-import { join } from "path";
-
-import { getPostPaths } from "@/actions/server";
 
 import { ListLayoutWrapper } from "@/components/ClientWrappers/ListLayoutWrapper";
 import { ListHeader } from "@/components/Headers/ListHeader";
 import { List } from "@/components/Content/List";
 import { ListFooter } from "@/components/Footers/ListFooter";
+import { Loading } from "@/components/Loaders/Loading";
 
 export const viewport: Viewport = {
     themeColor: '#171717',
@@ -29,7 +27,6 @@ export const ListLayout = async ({
     withSort = false,
 }: ListLayoutProps) => {
     // use the  `group` to create the directory path and retrieve all posts. Retrieve slugs after.
-    const postPaths = await getPostPaths(group)
 
     return (
         <ListLayoutWrapper>
@@ -38,7 +35,9 @@ export const ListLayout = async ({
                 withSearch={withSearch}
                 withFilter={withFilter}
                 withSort={withSort} />
-            <List sources={postPaths} />
+            <Suspense fallback={<Loading />}>
+                <List group={group} />
+            </Suspense>
             <ListFooter />
         </ListLayoutWrapper>
     )

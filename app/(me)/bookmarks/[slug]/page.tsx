@@ -3,26 +3,25 @@ import { getPostSlugs } from "@/actions/server";
 import { Suspense } from 'react';
 import { Loading } from '@/components/Loaders/Loading';
 
-type ProjectPostPageProps = {
+type BookmarkPostPageProps = {
     params: { slug: string };
 }
 
 export const generateStaticParams = async () => {
-    const slugs = await getPostSlugs('projects')
+    const slugs = await getPostSlugs('bookmarks')
     const params = slugs.map((x) => ({ slug: x }))
     return params
 }
 
-const ProjectPostPage = ({ params }: ProjectPostPageProps) => {
-
+const BookmarkPostPage = ({ params }: BookmarkPostPageProps) => {
     return (
-        <Suspense fallback=<Loading />>
+        <Suspense fallback={<Loading />}>
             <PostPage
                 slug={params.slug}
-                group={'projects'}
+                group={'bookmarks'}
             />
         </Suspense>
     )
 }
 
-export default ProjectPostPage;
+export default BookmarkPostPage;

@@ -1,25 +1,21 @@
 import { readFileSync } from "fs";
-import { compileMDX } from 'next-mdx-remote/rsc'
-import rehypeKatex from "rehype-katex";
-import remarkMath from "remark-math";
+import path from "path";
 import Image, { ImageProps } from "next/image";
 import { MDXComponents } from 'mdx/types';
-import rehypePrettyCode from "rehype-pretty-code";
+import Link from "next/link";
+import readingTime from "reading-time";
+
+import { NavGroups } from "@/types/types";
+
+import { convertMDXtoTSX } from "@/actions/server";
 
 import { PostHeader } from "@/components/Headers/PostHeader";
 import { Post } from "@/components/Content/Post";
 import { PostFooter } from "@/components/Footers/PostFooter";
-import readingTime from "reading-time";
-import Link from "next/link";
-import path from "path";
-import { navigationRoutes } from "@/config/site";
-import { Suspense } from "react";
-import { LoaderIcon } from "lucide-react";
+import { notFound } from "next/navigation";
+import { TableOfContents } from "./TableOfContents";
 
 const components: MDXComponents = {
-    h1: ({ children }) => <h1 className="font-bold text-2xl py-14">{children}</h1>,
-    h2: ({ children }) => <h2 className="font-bold text-xl pt-11">{children}</h2>,
-    h3: ({ children }) => <h3 className="font-semibold text-lg pt-8">{children}</h3>,
     p: ({ children }) => <p className="dark:text-neutral-300 pt-5 ">{children}</p>,
     a: ({ children, href }) => <Link href={href ? href : ""} className="font-bold text-blue-500 underline decoration-blue-500">{children}</Link>,
     img: (props) => (
@@ -31,55 +27,46 @@ const components: MDXComponents = {
     ),
 }
 
-const groups = navigationRoutes.flatMap(object => object.routes.map(routeObject => routeObject.href)).map((x) => (x.split('/')[1]))
-
 type PostPageProps = {
     showMetadata?: boolean,
     slug: string;
-    group: typeof groups[number];
+    group: NavGroups;
 }
-const Loading = <LoaderIcon className="h-20 w-20 text-muted-foreground animate-spin" />
 
+/**
+ * PostPage is a React Server Component that provides the content, structure, and styles of a blog 
+ * post. It receives `showMetadata` to decide whether to include reading time, zen mode, etc. It 
+ * uses `group` and `slug` to locate the matching MDX file with the post content and frontmatter in
+ * `@/contents`. When it locates the file, it uses the `convertMDXtoTSX` server action to convert the
+ * raw MDX into TSX. Lastly, it provides structure to and sends the appropriate data to the 
+ * `<PostHeader />`, '<Post />', and `<PostFooter />` components.
+ */
 export const PostPage = async ({
     showMetadata = true,
     group,
     slug,
 }: PostPageProps) => {
     const mdxPath = path.join(process.cwd(), `/content/${group}/${slug}.mdx`)
-    const postMDX = readFileSync(mdxPath, 'utf8')
-    const postTSX = await compileMDX<{ title: string }>({
-        source: postMDX,
-        options: {
-            parseFrontmatter: true,
-            mdxOptions: {
-                remarkPlugins: [remarkMath],
-                rehypePlugins: [
-                    [rehypeKatex, {
-                        output: "mathml",
-                    }],
-                    [rehypePrettyCode, {
-                        theme: {
-                            light: "catppuccin-latte",
-                            dark: "dark-plus",
-                        },
-                        defaultLang: "tsx",
-                    }],
-                ],
-            }
-        },
-        components: components
-    })
+    let mdx = ""
+    try {
+        mdx = readFileSync(mdxPath, `utf8`)
+    } catch (error) {
+        throw new Error("The post does not exist...yet")
+        notFound()
+    }
+
+    const tsx = await convertMDXtoTSX(mdx, components)
+    const time = readingTime(mdx).text;
 
     return (
-        <Suspense fallback={Loading}>
-            <section className="flex-1 flex flex-col items-center w-full gap-8 overflow-y-auto">
-                <PostHeader
-                    showMetadata={showMetadata}
-                    frontmatter={postTSX.frontmatter}
-                    readingTime={readingTime(postMDX).text} />
-                <Post content={postTSX.content} frontmatter={postTSX.frontmatter} />
-                <PostFooter />
-            </section>
-        </Suspense>
+        <section className="flex-1 flex flex-col items-center w-full gap-3 h-full overflow-y-auto ">
+            <PostHeader
+                showMetadata={showMetadata}
+                frontmatter={tsx.frontmatter}
+                readingTime={time}
+            />
+            <TableOfContents />
+            <Post content={tsx.content} frontmatter={tsx.frontmatter} />
+        </section>
     )
 }

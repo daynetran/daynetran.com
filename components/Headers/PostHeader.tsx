@@ -17,6 +17,12 @@ type PostHeaderProps = {
     readingTime: string;
 }
 
+/**
+ * `PostHeader` is a React Client Component. It provides information about a post, like the title 
+ * and the reading time when it receives `frontmatter`. It also provides metadata and user 
+ * interactivity, when `showMetadata` is `true`. It allows the user to toggle Zen Mode, open the 
+ * table of contents for the blog post, and toggle the theme.
+ */
 export const PostHeader = ({
     frontmatter,
     showMetadata = true,
@@ -76,7 +82,7 @@ export const PostHeader = ({
                             className="hidden lg:flex"
                         >
                             <GlassesIcon className="h-4 w-4" />
-                            {!isZen && <span className="pl-2">Zen Mode</span>}
+                            {!isZen && <span className="pl-2 hidden">Zen Mode</span>}
                         </Button>
                         <Button
                             size={isZen ? "rounded" : "default"}
@@ -86,7 +92,7 @@ export const PostHeader = ({
                             className="hidden lg:flex"
                         >
                             <SquareMenuIcon className="h-4 w-4" />
-                            {!isZen && <span className="pl-2">Outline</span>}
+                            {!isZen && <span className="pl-2 hidden ">Outline</span>}
                         </Button>
                         {readingTime && (
                             <span className="text-sm font-medium hidden lg:block">{readingTime}</span>

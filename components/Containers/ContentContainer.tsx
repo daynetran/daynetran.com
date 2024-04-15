@@ -1,6 +1,11 @@
+/**
+ * ContentContainer is a React Server Component that provides padding and several
+ * alignments to create a more pleasurable structure for users to view content,
+ * be it the sidebar navigation, list of posts, or the post itself.
+ */
 export const ContentContainer = ({ children }: { children: React.ReactNode }) => {
     return (
-        <section className="flex px-4 lg:px-3 py-0 w-full items-center justify-center ">
+        <section className="flex px-4 lg:px-3 py-0 w-full justify-center ">
             {children}
         </section>
     )
