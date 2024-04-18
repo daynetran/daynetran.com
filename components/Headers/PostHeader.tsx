@@ -7,7 +7,9 @@ import { HeaderContainer } from "@/components/Containers/HeaderContainer";
 
 import { useMobileSidebarSheet } from "@/stores/use-mobile-sidebar-sheet"
 import { useZenMode } from "@/stores/use-zen-mode";
-import { ThemeButton } from "../Theming/ThemeButton";
+import { MetabarMobileLayout } from "../Layouts/MetabarMobileLayout";
+import { useMobileMetabarSheet } from "@/stores/use-mobile-metabar-sheet";
+import { TableOfContents } from "../Post/TableOfContents";
 
 type PostHeaderProps = {
     frontmatter: {
@@ -37,6 +39,8 @@ export const PostHeader = ({
     const hasList = pathnames.length > 2;
 
     const { toggle, isZen } = useZenMode()
+    const { toggleMeta } = useMobileMetabarSheet()
+
     return (
         <HeaderContainer>
             <section className="flex-1 flex gap-3 items-center justify-start w-1/2">
@@ -54,7 +58,7 @@ export const PostHeader = ({
                             </Button>
                             : <Button
                                 size="rounded"
-                                variant="primary"
+                                variant="button"
                                 onClick={open}
                                 className="lg:hidden"
                                 title="Open Sidebar"
@@ -70,41 +74,35 @@ export const PostHeader = ({
                     </h1>
                 )}
             </section>
-            <section className="flex gap-3 justify-end items-center w-1/5 lg:w-1/3">
+            <section className="flex gap-3 justify-end items-center w-1/5 lg:w-1/2 ">
                 {showMetadata && (
                     <>
-                        {isZen && <ThemeButton />}
                         <Button
                             size={isZen ? "rounded" : "default"}
-                            variant="primary"
+                            variant="button"
                             onClick={toggle}
                             title="Zen Mode"
-                            className="hidden lg:flex"
+                            className="group items-center hidden lg:flex"
                         >
-                            <GlassesIcon className="h-4 w-4" />
-                            {!isZen && <span className="pl-2 hidden">Zen Mode</span>}
+                            <GlassesIcon className="h-4 w-4 " />
+                            {!isZen && <span className="pl-2">Zen Mode</span>}
                         </Button>
-                        <Button
-                            size={isZen ? "rounded" : "default"}
-                            variant="primary"
-                            onClick={() => console.log("world")}
-                            title="Table of Contents"
-                            className="hidden lg:flex"
-                        >
-                            <SquareMenuIcon className="h-4 w-4" />
-                            {!isZen && <span className="pl-2 hidden ">Outline</span>}
-                        </Button>
+                        <TableOfContents />
                         {readingTime && (
-                            <span className="text-sm font-medium hidden lg:block">{readingTime}</span>
+                            <span className="text-sm font-medium hidden lg:flex">{readingTime}</span>
                         )}
                         <Button
                             size="rounded"
                             variant="primary"
+                            onClick={toggleMeta}
                             title="Meta Menu"
                             className="lg:hidden"
                         >
                             <EllipsisVerticalIcon className="h-4 w-4" />
                         </Button>
+                        <MetabarMobileLayout >
+                            Hello world
+                        </MetabarMobileLayout>
                     </>
                 )}
             </section>

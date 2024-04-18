@@ -16,8 +16,14 @@ import { notFound } from "next/navigation";
 import { TableOfContents } from "./TableOfContents";
 
 const components: MDXComponents = {
-    p: ({ children }) => <p className="dark:text-neutral-300 pt-5 ">{children}</p>,
-    a: ({ children, href }) => <Link href={href ? href : ""} className="font-bold text-blue-500 underline decoration-blue-500">{children}</Link>,
+    a: ({ children, href }) => (
+        <Link
+            href={href ? href : ""}
+            className="font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-400 dark:to-blue-500 text-transparent bg-clip-text hover:underline decoration-blue-500"
+        >
+            {children}
+        </Link>
+    ),
     img: (props) => (
         <Image
             sizes="100vw"
@@ -65,7 +71,6 @@ export const PostPage = async ({
                 frontmatter={tsx.frontmatter}
                 readingTime={time}
             />
-            <TableOfContents />
             <Post content={tsx.content} frontmatter={tsx.frontmatter} />
         </section>
     )

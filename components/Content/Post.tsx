@@ -19,7 +19,7 @@ export const Post = ({ content, frontmatter }: {
     return (
         <ContentContainer>
             <article className="post flex flex-col w-full overflow-clip max-w-prose justify-center items-start text-start">
-                <h1 className="font-bold text-2xl">{frontmatter.title}</h1>
+                <h1 className="font-bold text-2xl mb-5">{frontmatter.title}</h1>
                 {content}
             </article>
         </ContentContainer >

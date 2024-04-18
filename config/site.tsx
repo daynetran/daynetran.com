@@ -55,14 +55,14 @@ export const navigationRoutes: RouteGroup[] = [
         label: "Me",
         color: "red",
         routes: [
-            {
-                href: "/bookmarks",
-                label: "Bookmarks",
-                icon: BookmarkIcon,
-                trailingAccessory: null,
-                trailingAction: null,
-                isExternal: false,
-            },
+            // {
+            //     href: "/bookmarks",
+            //     label: "Bookmarks",
+            //     icon: BookmarkIcon,
+            //     trailingAccessory: null,
+            //     trailingAction: null,
+            //     isExternal: false,
+            // },
             {
                 href: "/faqs",
                 label: "FAQs",

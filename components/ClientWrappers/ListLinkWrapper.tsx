@@ -17,7 +17,7 @@ export const PostLink = ({
 
     return (
         <Button
-            variant={active ? `primaryOutline` : `primary`}
+            variant={active ? `postActive` : `post`}
             size="link"
             asChild
         >

@@ -11,7 +11,7 @@ export const SidebarHeader = () => {
         <HeaderContainer>
             {// Please put a cool, interactive logo here instead of this basic nonsense. lmao.
             }
-            <h1 className="font-bold text-lg"> Dayne Tran </h1>
+            <h1 className="font-bold text-lg text-transparent bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text "> Dayne Tran </h1>
             <ThemeButton />
         </HeaderContainer>
     )

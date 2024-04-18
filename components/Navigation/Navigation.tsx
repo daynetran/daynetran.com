@@ -22,7 +22,7 @@ export const Navigation: FC = () => {
                     <ul key={section.label} className="text-sm ">
                         <li className="flex flex-col gap-3">
                             {section.label && (
-                                <h2 className="pl-2 font-semibold text-opacity-40" >{section.label}</h2>
+                                <h2 className="pl-2 text-xs text-neutral-400" >{section.label}</h2>
                             )}
                             <ul className="flex flex-col gap-1">
                                 {section.routes.map((route) => {
@@ -37,11 +37,11 @@ export const Navigation: FC = () => {
                                         >
                                             <Link
                                                 href={route.href}
-                                                className="w-full flex routes-center gap-3"
+                                                className="w-full flex items-center gap-3"
                                                 target={route.isExternal ? "_blank" : ""}
                                             >
                                                 <route.icon className="w-4" />
-                                                <h3 className="flex-1 font-semibold"> {route.label} </h3>
+                                                <h3 className="flex-1 "> {route.label} </h3>
                                                 {route.isExternal ? <ArrowUpRightIcon className="w-4" /> : null}
                                             </Link>
                                         </NavigationLink>

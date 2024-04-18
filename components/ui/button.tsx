@@ -13,26 +13,24 @@ const buttonVariants = cva(
                     "bg-primary text-primary-foreground lg:hover:bg-primary/90",
                 destructive:
                     "bg-destructive text-destructive-foreground lg:hover:bg-destructive/90",
-                red:
-                    "bg-white dark:bg-neutral-900 lg:hover:bg-red-200/80 dark:lg:hover:bg-red-200/20  active:scale-[0.99]",
-                redOutline:
-                    "bg-red-500 dark:bg-red-300 text-white dark:text-neutral-900 active:scale-[0.99]",
-                blue:
-                    "bg-white dark:bg-neutral-900 lg:hover:bg-blue-200/80 dark:lg:hover:bg-blue-200/20 active:scale-[0.99]",
-                blueOutline:
-                    "bg-blue-500 dark:bg-blue-300 text-white dark:text-neutral-900 active:scale-[0.99]",
-                green:
-                    "bg-white dark:bg-neutral-900 lg:hover:bg-green-200/80 dark:lg:hover:bg-green-200/20  active:scale-[0.99]",
-                greenOutline:
-                    "bg-green-500 dark:bg-green-300 text-white dark:text-neutral-900 active:scale-[0.99]",
                 primary:
-                    "bg-transparent hover:bg-neutral-200/80 dark:hover:bg-neutral-200/20  active:scale-[0.99] text-wrap",
+                    "bg-transparent hover:bg-neutral-100/80 dark:hover:bg-neutral-200/20  active:scale-[0.99] text-wrap hover:dark:bg-gradient-to-r",
                 primaryOutline:
-                    "bg-neutral-200 dark:bg-neutral-700 active:scale-[0.99]",
+                    "bg-neutral-100 dark:bg-neutral-700 active:scale-[0.99] bg-gradient-to-r from-blue-100 to-green-100 shadow-sm dark:from-blue-700 dark:to-green-700",
                 secondary:
                     "bg-secondary text-secondary-foreground lg:hover:bg-secondary/80",
                 ghost: "lg:hover:bg-accent lg:hover:text-accent-foreground",
-                link: "text-primary underline-offset-4 lg:hover:underline",
+                link: "text-primary underlinej",
+                button: "bg-transparent hover:bg-neutral-100/80 dark:hover:bg-neutral-200/20  active:scale-[0.99] ",
+                sidebar:
+                    "active:scale-[0.99] bg-transparent hover:bg-gradient-to-r hover:from-blue-100/30 hover:to-purple-100/30 text-wrap hover:dark:bg-gradient-to-r hover:dark:from-blue-700/50 hover:dark:to-purple-700/50",
+                sidebarActive:
+                    "active:scale-[0.99] bg-gradient-to-r from-blue-200 to-purple-100 shadow-sm dark:from-blue-700 dark:to-purple-700",
+                post:
+                    "active:scale-[0.99] hover:bg-gradient-to-r hover:from-blue-500/80 hover:to-purple-500/80 hover:dark:from-blue-100/90 hover:dark:to-purple-100/90 hover:text-transparent hover:bg-clip-text",
+                postActive:
+                    "active:scale-[0.99] bg-gradient-to-r text-transparent bg-clip-text from-blue-500 to-purple-500 dark:from-blue-300 dark:to-purple-300"
+
             },
             size: {
                 default: "h-8 px-2 py-1",

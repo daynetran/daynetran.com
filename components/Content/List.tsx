@@ -61,10 +61,10 @@ export const List = async ({
                             >
                                 <div className="flex flex-col gap-1 w-full">
                                     <div className="flex justify-between w-full">
-                                        <h1 className="font-semibold">{title}</h1>
-                                        {pin && <PinIcon className="w-4 h-4" fill="black" color="black" />}
+                                        <h1 className="font-bold">{title}</h1>
+                                        {pin && <PinIcon className="w-4 h-4 text-black dark:text-white" />}
                                     </div>
-                                    <p className="text-sm font-light ">
+                                    <p className="text-xs font-light ">
                                         {date &&
                                             date.toLocaleDateString(
                                                 'en-US',

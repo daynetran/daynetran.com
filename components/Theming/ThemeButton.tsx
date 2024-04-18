@@ -30,7 +30,7 @@ export const ThemeButton = () => {
     return (
         <Button
             size="rounded"
-            variant="primary"
+            variant="button"
             onClick={handleClick}
             title="Toggle Theme"
         >

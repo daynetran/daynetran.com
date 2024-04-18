@@ -1,5 +1,49 @@
 ---
-title: How I made this site
-date: 2024-03-01 
+title: How I Created This Website
+date: 2024-04-16
 ---
-Hello world
+
+***Play. Learn. Experiment. Build. Journal.***
+
+This website, [www.daynetran.com](ww.daynetran.com), is a place that provides all of these things for me. So, how do I build it?
+
+## The goals I had in mind
+
+The website I have in mind needs to operate like a fully-fledged web application. 
+
+1. **It uses the fundamentals**: I can use the building blocks of web development (HTML, CSS, JavaScript) for the base as I add more powerful, higher levels of abstraction.
+2. **It is well-structured:** I can use composable, maintainable units of code to build the application.
+3. **It intelligently handles data:** I can quickly fetch, cache, and deliver content. 
+4. **It manage global and local state:** I can store, move, and update memory across the application.
+5. **It streamlines production:** I can publish new posts, write new components, and add to the website with as little friction as possible.
+6. **It is battle-tested:** I can addd new designs and features, and I do not break existing code or introduce new bugs.
+7. **It is accessible for everyone** : I can deliver a meaningful, inclusive experience for all users, regardless of their abilities.
+8. **It has great design:** I can provide user interfaces that are visually engaging, responsive, and easy to use.
+9. **It is capable and performant by modern standards:** I can leverage existing application frameworks to handle modern requirements (SEO, SSR, etc.).
+Let's go through each of these requirements, one by one.
+
+## The Fundamentals
+
+My very first attempt at creating my own website failed miserably. I chose Jekyll for my website builder, but I did not have any basic knowledge of HTML, CSS, or JavaScript. I knew and wrote solely Markdown, but I was unhappy with the results. 
+
+I could not make it interactive (because I did not know JavaScript), I could not build upon the preexisting structure (because I did not know HTML), and I could not create a delightful, customizable design (because I did not know CSS). There were large gaps between what I knew and what I could do.
+
+So, this website is built from the ground up, with my own `<div>` tags, `async` / `await` functions, and `.post > p` selectors galore. The important asterisk is that this website is **not** built with just vanilla HTML, JS, and CSS. Almost no modern website is. There are many, many more features that are expounded upon in the rest of the article that I use, but the basic building blocks remain: HTML, CSS, and JavaScript. Let's go!
+
+## The User Interface Engine
+
+In order to create an application that can adeptly scale in size and complexity, I need to reach for a UI framework or library. I chose **[React](https://react.dev)**. 
+
+React does has its flaws. I believe React is verbose and superfluously complex, more so than great alternatives like [Svelte](https://svelte.dev) and [Vue](https://vuejs.org/). React also uses a virtual DOM instead of a compiler to render UI to the browser, and in turn, their rendering engine is less performant than competitors.
+
+But I also recognize that React (being the first of the composable, feature-rich UI libraries) has the largest ecosystem of third-party libraries. Picking React means picking the countless tools built for React that help elevate the developer and user experiences.
+
+Furthermore, the application framework I choose (which I discuss later in the post) is also an incredibly important decision to make, and many application frameworks are closely tied to a UI framework that they build upon.
+
+So, React is the one for me. At least, for this website.
+
+## How We Handle Data
+
+The primary purpose of almost all software applications is not to perform calculations, but to store and retrieve information (in this case, blog posts) - usually as fast as possible. 
+
+

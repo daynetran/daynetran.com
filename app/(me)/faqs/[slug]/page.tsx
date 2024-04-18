@@ -21,6 +21,7 @@ const FAQSPostPage = ({ params }: FAQSPostPageProps) => {
             <PostPage
                 slug={params.slug}
                 group={'faqs'}
+                showMetadata={false}
             />
         </Suspense>
     )

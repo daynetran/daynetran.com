@@ -7,7 +7,9 @@ import path, { join } from 'path';
 import { cwd } from 'process';
 
 import { compileMDX } from 'next-mdx-remote/rsc';
+import remarkGfm from "remark-gfm";
 import remarkMath from 'remark-math';
+import remarkToc from "remark-toc";
 import rehypeKatex from 'rehype-katex';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug'
@@ -80,11 +82,15 @@ export const convertMDXtoTSX = async (mdx: string, components: MDXComponents) =>
             mdxOptions: {
                 remarkPlugins: [
                     remarkMath,
+                    remarkToc,
+                    remarkGfm,
                 ],
                 rehypePlugins: [
+                    // @ts-ignore
                     [rehypeKatex, {
                         output: "mathml",
                     }],
+                    // @ts-ignore
                     [rehypePrettyCode, {
                         theme: {
                             light: "catppuccin-latte",
