@@ -23,7 +23,6 @@ import { NavGroups } from "@/types/types";
   * directory, and it stores all the pathnames for MDX files in an array. It returns the array `paths`.
   */
 export const getPostPaths = async (group: string) => {
-    console.log("again?")
     const dirName = join(cwd(), 'content', group, '/')
     let paths: string[] = [];
     const items = await promises.readdir(dirName, { withFileTypes: true });
