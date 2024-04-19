@@ -65,7 +65,7 @@ export const PostPage = async ({
     const time = readingTime(mdx).text;
 
     return (
-        <section className="flex-1 flex flex-col items-center w-full h-full overflow-y-auto overflow-x-clip ">
+        <section className="flex-1 flex flex-col items-center w-full h-full overflow-y-auto overflow-x-clip pb-5">
             <PostHeader
                 showMetadata={showMetadata}
                 frontmatter={tsx.frontmatter}
