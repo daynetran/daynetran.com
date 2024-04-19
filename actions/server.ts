@@ -75,7 +75,7 @@ export const convertPathtoMDX = (group: string, slug: string) => {
   * the JSX. 
   */
 export const convertMDXtoTSX = async (mdx: string, components: MDXComponents) => {
-    const tsx = await compileMDX<{ title: string }>({
+    const tsx = await compileMDX<{ title: string, date?: Date }>({
         source: mdx,
         options: {
             parseFrontmatter: true,

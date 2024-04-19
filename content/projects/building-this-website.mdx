@@ -1,13 +1,13 @@
 ---
 title: How I Created This Website
 date: 2024-04-16
+link: https://www.daynetran.com
 ---
-
 ***Play. Learn. Experiment. Build. Journal.***
 
-This website, [www.daynetran.com](ww.daynetran.com), is a place that provides all of these things for me. So, how do I build it?
+This website, [www.daynetran.com](www.daynetran.com), is a place that provides all of these things for me. So, how do I build it?
 
-## The goals I had in mind
+## The Goals In Mind
 
 The website I have in mind needs to operate like a fully-fledged web application. 
 
@@ -16,7 +16,7 @@ The website I have in mind needs to operate like a fully-fledged web application
 3. **It intelligently handles data:** I can quickly fetch, cache, and deliver content. 
 4. **It manage global and local state:** I can store, move, and update memory across the application.
 5. **It streamlines production:** I can publish new posts, write new components, and add to the website with as little friction as possible.
-6. **It is battle-tested:** I can addd new designs and features, and I do not break existing code or introduce new bugs.
+6. **It is battle-tested:** I can add new designs and features, and I do not break existing code or introduce new bugs.
 7. **It is accessible for everyone** : I can deliver a meaningful, inclusive experience for all users, regardless of their abilities.
 8. **It has great design:** I can provide user interfaces that are visually engaging, responsive, and easy to use.
 9. **It is capable and performant by modern standards:** I can leverage existing application frameworks to handle modern requirements (SEO, SSR, etc.).
@@ -40,10 +40,45 @@ But I also recognize that React (being the first of the composable, feature-rich
 
 Furthermore, the application framework I choose (which I discuss later in the post) is also an incredibly important decision to make, and many application frameworks are closely tied to a UI framework that they build upon.
 
-So, React is the one for me. At least, for this website.
+So React is the one for me. At least, for this website.
 
 ## How We Handle Data
 
 The primary purpose of almost all software applications is not to perform calculations, but to store and retrieve information (in this case, blog posts) - usually as fast as possible. 
 
+The data I store and retrieve here is entirely first-party information. All markdown posts (specifically, MDX) are stored in a separate local folder. At build time, when the website optimizes and readies itself for production, the HTML for each individual page with a matching post will be created.
+
+A compiler turns the `.mdx` files into `.jsx` files, entering React's territory. React then commits the JSX to the browser, and a post is statically generated, ready to be cached in a CDN and served to users around the globe.
+
+Later this year, I think I will add third-party information like ESPN sports data to create a dashboard that follows my favorite sports teams. And I will add a first-party database to provide likes and comments for posts, too.
+
+## State Management
+
+State is information that I want to persist throughout the application. For this website, I leaned on both global and local state management solutions.
+
+[next-themes](https://github.com/pacocoursey/next-themes) is a truly simple and effective way to provide light and dark themes for the website. And [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) is a great solution for global state management. They allow the user to trigger actions in one area of code that propagate to the entirety of the application. This is useful for dialogs, drop-down menus, and more.
+
+For example, "Zen Mode" allows the user to close the sidebar and list layouts to focus on the blog content. I used Zustand stores to open and close the layouts whenever the user clicks on the Zen Mode button.
+
+## Staying Productive
+
+Maybe the most important key for the long-term success of this website is to reduce friction for production. If I can write and publish posts without it being a pain in the butt, then I can do this for a long time. I think I found a easy way, but I definitely will reflect and improve it as time passes.
+
+First, I write every post in Obsidian, where I also keep all my notes. I like Obsidian for several reasons: I can sync my posts across devices for future reference, I can store them in the same locality as my notes for other things, and Obsidian marks up whatever I write to create a pleasant authoring experience.
+
+Then I copy the source code from Obsidian and paste it into a .mdx file in my project. All I have to do is add, commit, and push, and the site is updated. 
+
+## Testing
+
+This is the one glaring missing piece in my code.  The focus right now is to get the website up and running quickly, and I definitely will come back to fix this.
+
+## Accessible for Everyone
+
+Accessibility is something that I want to get better at. I definitely will read the MDN docs about it, but for now, my knowledge of accessibility is limited to knowing that ShadCN (more on them in a bit) takes care of it for me.
+
+## Good Design
+
+I want to give credit to [briOS](https://www.brianlovin.com). His design enables someone to read and explore posts in a very friendly, natural way. Although the implementation of our websites are different, the spirit is the same. 
+
+ShadCN is also a huge part of the design of this website. 
 

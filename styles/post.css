@@ -21,6 +21,10 @@
     @apply pt-5 
 }
 
+.post a {
+    @apply font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-400 dark:to-blue-500 text-transparent bg-clip-text hover:underline decoration-blue-500
+}
+
 .post ol {
     @apply pt-5 list-decimal 
 }

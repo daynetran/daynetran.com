@@ -14,6 +14,7 @@ import { TableOfContents } from "../Post/TableOfContents";
 type PostHeaderProps = {
     frontmatter: {
         title: string,
+        date?: Date,
     }
     showMetadata: boolean;
     readingTime: string;
@@ -42,71 +43,67 @@ export const PostHeader = ({
     const { toggleMeta } = useMobileMetabarSheet()
 
     return (
-        <HeaderContainer>
-            <section className="flex-1 flex gap-3 items-center justify-start w-1/2">
-                {!isZen && (
-                    <>
-                        {hasList
-                            ? <Button
+        <header className="w-full sticky top-0 dark:bg-transparent h-16 min-h-16 max-h-16 backdrop-blur-2xl flex items-center justify-between">
+            <div className="w-full h-full px-3 py-3 relative bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 flex">
+                <section className="flex-1 flex gap-3 items-center justify-start w-1/2 " >
+                    {!isZen && (
+                        <>
+                            {hasList
+                                ? <Button
+                                    size="rounded"
+                                    variant="button"
+                                    onClick={() => router.push(topPathname)}
+                                    title={`Back to ${topPathname}`}
+
+                                >
+                                    <ArrowLeftIcon className="h-4 w-4" />
+                                </Button>
+                                : <Button
+                                    size="rounded"
+                                    variant="button"
+                                    onClick={open}
+                                    className="lg:hidden"
+                                    title="Open Sidebar"
+                                >
+                                    <MenuIcon className="h-4 w-4" />
+                                </Button>
+                            }
+                        </>
+                    )}
+                    {
+                        <h1 className="text-sm font-medium">{title}</h1>
+                    }
+                </section>
+                <section className="flex gap-3 justify-end items-center w-1/5 lg:w-1/2 ">
+                    {showMetadata && (
+                        <>
+                            <Button
+                                size={isZen ? "rounded" : "default"}
+                                variant="button"
+                                onClick={toggle}
+                                title="Zen Mode"
+                                className="group items-center hidden lg:flex"
+                            >
+                                <GlassesIcon className="h-4 w-4 " />
+                                {!isZen && <span className="pl-2">Zen Mode</span>}
+                            </Button>
+                            <Button
                                 size="rounded"
                                 variant="primary"
-                                onClick={() => router.push(topPathname)}
-                                title={`Back to ${topPathname}`}
-
-                            >
-                                <ArrowLeftIcon className="h-4 w-4" />
-                            </Button>
-                            : <Button
-                                size="rounded"
-                                variant="button"
-                                onClick={open}
+                                onClick={toggleMeta}
+                                title="Meta Menu"
                                 className="lg:hidden"
-                                title="Open Sidebar"
                             >
-                                <MenuIcon className="h-4 w-4" />
+                                <EllipsisVerticalIcon className="h-4 w-4" />
                             </Button>
-                        }
-                    </>
-                )}
-                {title && (
-                    <h1 className="flex-1 font-semibold text-base truncate ...">
-                        {title}
-                    </h1>
-                )}
-            </section>
-            <section className="flex gap-3 justify-end items-center w-1/5 lg:w-1/2 ">
-                {showMetadata && (
-                    <>
-                        <Button
-                            size={isZen ? "rounded" : "default"}
-                            variant="button"
-                            onClick={toggle}
-                            title="Zen Mode"
-                            className="group items-center hidden lg:flex"
-                        >
-                            <GlassesIcon className="h-4 w-4 " />
-                            {!isZen && <span className="pl-2">Zen Mode</span>}
-                        </Button>
-                        <TableOfContents />
-                        {readingTime && (
-                            <span className="text-sm font-medium hidden lg:flex">{readingTime}</span>
-                        )}
-                        <Button
-                            size="rounded"
-                            variant="primary"
-                            onClick={toggleMeta}
-                            title="Meta Menu"
-                            className="lg:hidden"
-                        >
-                            <EllipsisVerticalIcon className="h-4 w-4" />
-                        </Button>
-                        <MetabarMobileLayout >
-                            Hello world
-                        </MetabarMobileLayout>
-                    </>
-                )}
-            </section>
-        </HeaderContainer >
+                            <MetabarMobileLayout >
+                                Hello world
+                            </MetabarMobileLayout>
+                        </>
+                    )}
+                </section>
+            </div >
+        </header>
     )
 }
 

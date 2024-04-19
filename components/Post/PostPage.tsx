@@ -19,7 +19,7 @@ const components: MDXComponents = {
     a: ({ children, href }) => (
         <Link
             href={href ? href : ""}
-            className="font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-400 dark:to-blue-500 text-transparent bg-clip-text hover:underline decoration-blue-500"
+            className=""
         >
             {children}
         </Link>
@@ -65,13 +65,13 @@ export const PostPage = async ({
     const time = readingTime(mdx).text;
 
     return (
-        <section className="flex-1 flex flex-col items-center w-full gap-3 h-full overflow-y-auto ">
+        <section className="flex-1 flex flex-col items-center w-full h-full overflow-y-auto overflow-x-clip ">
             <PostHeader
                 showMetadata={showMetadata}
                 frontmatter={tsx.frontmatter}
                 readingTime={time}
             />
-            <Post content={tsx.content} frontmatter={tsx.frontmatter} />
+            <Post content={tsx.content} frontmatter={tsx.frontmatter} readingTime={time} />
         </section>
     )
 }

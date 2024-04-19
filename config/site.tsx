@@ -109,22 +109,22 @@ export const navigationRoutes: RouteGroup[] = [
                 trailingAction: null,
                 isExternal: false,
             },
-            {
-                href: "/tier-lists",
-                label: "Tier Lists",
-                icon: TierListIcon,
-                trailingAccessory: null,
-                trailingAction: null,
-                isExternal: false,
-            },
-            {
-                href: "/resume",
-                label: "Resume",
-                icon: ResumeIcon,
-                trailingAccessory: null,
-                trailingAction: null,
-                isExternal: true,
-            },
+            // {
+            //     href: "/tier-lists",
+            //     label: "Tier Lists",
+            //     icon: TierListIcon,
+            //     trailingAccessory: null,
+            //     trailingAction: null,
+            //     isExternal: false,
+            // },
+            // {
+            //     href: "/resume",
+            //     label: "Resume",
+            //     icon: ResumeIcon,
+            //     trailingAccessory: null,
+            //     trailingAction: null,
+            //     isExternal: true,
+            // },
         ]
     },
     // {
