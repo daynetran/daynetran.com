@@ -3,5 +3,53 @@ title: Tranlingo is like Duolingo, but it teaches my languages
 date: 2024-04-01
 link: https://tranlingo.vercel.app
 ---
-Tranlingo celebrates and teaches my Asian-American heritage 
-Woah there
+Duolingo is a beloved and established online platform for learning new languages, and I felt like it would be a great experience to attempt to recreate it.
+
+Here is the final product: [Tranlingo](https://tranlingo.vercel.app).
+
+So, how did I build it? The 'tldr' laundry list is Next.js and React, Drizzle, Radix and ShadCN, React Admin, and several more.
+
+But, for the complete deep dive, let's follow the blueprint for frontend development:
+
+## The Foundations
+
+Everything we use builds upon the basic technologies: HTML, CSS, and JavaScript.
+HTML provides the structure, CSS brings the style, and JavaScript adds the interactivity.
+
+I chose [Tailwind](tailwindcss.com) instead of vanilla CSS, because the utility classes it provides make for a fast and seamless developer experience. I do not have to worry about picking the exact colors or pixel sizes - Tailwind already tastefully picked the right defaults.
+
+And I also chose to develop with [Typescript](https://www.typescriptlang.org/), because type safety is definitely worth it when I have to integrate the points and hearts systems that run the games on Tranlingo.
+
+## The UI Framework
+
+A Duolingo-like education platform means client-server interactions will be embedded everywhere. Therefore, a UI library is a must-have - I can focus on writing code declaratively, and the library will abstract away many of the connections to the browser DOM.
+
+Furthermore, many pieces of the user interface will be reused across different language lessons and units. So composability is another must-have for development, in order to save time and energy.
+
+I chose [React](https://www.react.dev). Although one can persuasively argue for other libraries like Vue and Svelte, I think React is still a strong choice because of the ecosystem that has formed around it. For example, the component library [shadcn/ui](https://ui.shadcn.com)  and the meta-framework [Next.js](https://www.nextjs.org.). But more on them in a bit.
+
+## Handling Data
+
+### User Data
+
+User data is absolutely critical in any and all applications - so I chose [Clerk](https://clerk.com/) , a reputable user management platform with a generous free tier, and I am very happy with that choice. 
+
+Authentication and authorization are very difficult tasks to correctly execute, and the purpose of this project is not to get blocked by them, but to instead focus on building the Duolingo-like logic and feel of my platform. Clerk directs users to sign in with a Google account, and after they are authenticated, I can decide what actions they are authorized to do inside the application.
+
+### Platform Data
+
+Application data comes from a serverless Postgres platform, [Neon](https://neon.tech/). They provide a free tier that I gladly used, and it was very simple to set up and use. I also chose [Drizzle](https://orm.drizzle.team/) to create table schema, manage mutations / additions / deletions, and enforce type safety.
+
+Application data consisted of course lessons and units, user progress in the courses, user hearts / points / quests, and much more. It was my first time using Drizzle and Neon, and I found the entire developer experience very pleasurable, thanks in large part to Drizzle's emphasis on type safety through TypeScript.
+
+## State Management
+
+[Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) runs the global state management for modals like heart modal, exit modal, and practice modals. React's `useState` almost entirely handles the user interactions in a lesson or quiz of a course. Zustand's approach for global state management is such a better way than wrapping contexts around a lot of components, and I look forward to poring over their documentation to better understand and master the library.
+
+## Design, UI, and UX
+
+ Again, Tranlingo is a clone of Duolingo, and Duolingo's design philosophy and decisions are etched into that of Tranlingo. In order to achieve the similar look and feel, I leaned on [shadcn](https://ui.shadcn.com) for produce lightly-styled, accessible components and [Lucide](https://lucide.dev) for a large and friendly icon library.
+
+
+
+

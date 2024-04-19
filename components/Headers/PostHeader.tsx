@@ -1,13 +1,12 @@
 "use client"
 import { usePathname, useRouter } from "next/navigation";
-import { ArrowLeftIcon, EllipsisVerticalIcon, GlassesIcon, MenuIcon, SquareMenuIcon } from "lucide-react";
+import { ArrowLeftIcon, EllipsisVerticalIcon, MenuIcon, ScanIcon, SquareMenuIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { HeaderContainer } from "@/components/Containers/HeaderContainer";
 
 import { useMobileSidebarSheet } from "@/stores/use-mobile-sidebar-sheet"
 import { useZenMode } from "@/stores/use-zen-mode";
-import { MetabarMobileLayout } from "../Layouts/MetabarMobileLayout";
+import { MetabarMobileLayout } from "@/components/Layouts/MetabarMobileLayout";
 import { useMobileMetabarSheet } from "@/stores/use-mobile-metabar-sheet";
 import { TableOfContents } from "../Post/TableOfContents";
 
@@ -29,7 +28,6 @@ type PostHeaderProps = {
 export const PostHeader = ({
     frontmatter,
     showMetadata = true,
-    readingTime = ''
 }: PostHeaderProps) => {
     const title = frontmatter.title;
     const { open } = useMobileSidebarSheet();
@@ -84,7 +82,7 @@ export const PostHeader = ({
                                 title="Zen Mode"
                                 className="group items-center hidden lg:flex"
                             >
-                                <GlassesIcon className="h-4 w-4 " />
+                                <ScanIcon className="h-4 w-4 " />
                                 {!isZen && <span className="pl-2">Zen Mode</span>}
                             </Button>
                             <Button
