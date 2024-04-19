@@ -15,11 +15,7 @@ import { PostMeta } from '../Post/PostMeta';
  */
 export const Post = ({ content, frontmatter, readingTime }: {
     content: ReactElement,
-    frontmatter: {
-        title: string,
-        date: Date,
-        link: string,
-    },
+    frontmatter: any,
     readingTime: string,
 }) => {
     return (
