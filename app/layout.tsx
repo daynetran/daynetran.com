@@ -25,23 +25,21 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <ClerkProvider>
-            <html lang="en" suppressHydrationWarning>
-                <body className={`relative flex min-h-screen min-w-screen bg-white dark:bg-black ${inter.className}`}>
-                    <ThemeProvider attribute="class">
-                        <Toaster />
-                        <SidebarLayout>
-                            <Navigation />
-                        </SidebarLayout>
-                        <SidebarMobileLayout >
-                            <Navigation />
-                        </SidebarMobileLayout>
-                        <MainLayout>
-                            {children}
-                        </MainLayout>
-                    </ThemeProvider>
-                </body>
-            </html>
-        </ClerkProvider>
+        <html lang="en" suppressHydrationWarning>
+            <body className={`relative flex min-h-screen min-w-screen bg-white dark:bg-black ${inter.className}`}>
+                <ThemeProvider attribute="class">
+                    <Toaster />
+                    <SidebarLayout>
+                        <Navigation />
+                    </SidebarLayout>
+                    <SidebarMobileLayout >
+                        <Navigation />
+                    </SidebarMobileLayout>
+                    <MainLayout>
+                        {children}
+                    </MainLayout>
+                </ThemeProvider>
+            </body>
+        </html>
     );
 }
