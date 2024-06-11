@@ -1,0 +1,25 @@
+---
+title: RookieDB - Under the Hood of a Database System 
+date: 2024-06-01
+link:
+---
+
+CS186, "Introduction to Database Systems", is an essential upper-division course for Computer Science students at UC Berkeley. As the class jumped through different areas of the subject, I added features to a bare-bones Java implementation of a database. By the semester's end, I produced a fault-tolerant, index-efficient, query-optimal, concurrent database named **RookieDB**.
+
+First, I learned the primary language of database systems, **SQL**.. I can write correct SQL syntax to create and destroy data views and tables, or query and compute information. Through SQL, a database system becomes actually functional and useful.
+
+Second, I completed a partial implementation of a **B+ tree**, a dynamic data structure that efficiently balances data as it is inserted and removed. The data in question are the primary keys of a disc-dependent data source. In other words, the B+ tree is a separate structure from the actual data table, and it contains a copy of one or more columns from the table, along with a pointer to the corresponding row in the data table. By adding a B+ tree to my database, I now can efficiently search for lists of records.
+
+Third, I wrote several implementations of common **join algorithms** - Grace Hash, Block Nested Loop , and Sort-Merge. Join algorithms enable RookieDB to aggregate data from separate tables based on common attributes. Different algorithms excel under different constraints. Grace Hash is ideal when one relation is significantly smaller than others, and Sort-Merge is optimal when sorting is a critical requirement. I also wrote a query optimizer. RookieDB now possesses the flexibility to select the appropriate join algorithm depending on the nature of the query.
+
+Fourth, I added **concurrency** - the ability to handle several data transactions simultaneously - to RookieDB. Specifically, I implemented some helper functions for both lock types and the queuing system for locks. The queueing logic allows RookieDB to synchronize and prioritize transactions. Furthermore, I implemented the multigranularity operations and constraints. All in all, the locking system provides database concurrency and isolation.
+
+Fifth, I implemented several features that enable RookieDB to **recover** data. Specifically, I added write-ahead logging and support for savepoints, rollbacks, and ACID compliant restart recovery. When RookieDB is undergoing normal operation - where transactions are running normally, reading and writing data - it can maintain a log by adding log records and ensuring that the log is properly flushed when necessary so that we can recover from a crash at any time. Furthermore, when RookieDB starts up again, it initiates restart recovery - analysis, redo, and undo.
+
+And so, RookieDB is the final product of a fifteen-week, under-the-hood exploration of database systems. I attached the links to my code on Github below.
+
+[Part One: SQL](https://github.com/berkeley-cs186-student/fa21-proj1-daynetran)
+[Part Two: B+ Trees](https://github.com/berkeley-cs186-student/fa21-proj2-daynetran)
+[Part Three: Joins and Query Optimization](https://github.com/berkeley-cs186-student/fa21-proj3-daynetran)
+[Part Four: Concurrency](https://github.com/berkeley-cs186-student/fa21-proj4-daynetran)
+[Part Five: Recovery](https://github.com/berkeley-cs186-student/fa21-proj5-daynetran)
