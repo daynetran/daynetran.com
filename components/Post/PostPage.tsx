@@ -57,8 +57,8 @@ export const PostPage = async ({
     try {
         mdx = readFileSync(mdxPath, `utf8`)
     } catch (error) {
-        throw new Error("The post does not exist...yet")
         notFound()
+        throw new Error("The post does not exist...yet")
     }
 
     const tsx = await convertMDXtoTSX(mdx, components)
