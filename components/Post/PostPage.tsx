@@ -57,6 +57,7 @@ export const PostPage = async ({
     try {
         mdx = readFileSync(mdxPath, `utf8`)
     } catch (error) {
+        console.log("The post does not exist.")
         notFound()
         throw new Error("The post does not exist...yet")
     }
